@@ -1,0 +1,15 @@
+<div class='user-details'>
+  <a href='/'><h3>Home</h3></a>
+  <h4><%= @user.capitalize %></h4>
+  <p>
+    <strong>Email:</strong> <%= @email %><br>
+    <strong>Interests:</strong> <%= @interests.join(", ") %>
+  </p>
+</div>
+
+<div class='footer'>
+  <% @users.each do |user, _| %>
+    <% next if @user == user.to_s %>
+    <a href="/users/<%= user %>"><%= user %></a>
+  <% end %>
+</div>

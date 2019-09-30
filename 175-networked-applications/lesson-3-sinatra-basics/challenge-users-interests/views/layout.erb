@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .list-heading, h4 {
+        color: mediumvioletred;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <footer>
+      <p>There are <%= @users.size %> users with a total of <%= count_interests(@users) %> interests.</p>
+    </footer>
+  </body>
+</html>

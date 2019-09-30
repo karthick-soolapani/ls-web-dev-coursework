@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Form Layouts</title>
+    <meta charset="utf-8" />
+
+    <style>
+      body {
+        font: normal 14px Helvetica, Arial, sans-serif;
+      }
+
+      form {
+        font-size: 0;
+      }
+
+      dl {
+        padding: 10px 0;
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .city, .state, .zipcode {
+        display: inline-block;
+        padding-right: 5px;
+        box-sizing: border-box;
+      }
+
+      .city {
+        width: 50%;
+      }
+
+      .state, .zipcode {
+        width: 25%;
+      }
+
+      dt {
+        margin-bottom: 3px;
+      }
+
+      dd {
+        margin-left: 0;
+      }
+
+      input[type="text"],
+      select {
+        border: 1px solid #cecece;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font: normal 14px Helvetica, Arial, sans-serif;
+        padding: 2px;
+        height: 1.75em;
+        width: 100%;
+      }
+
+      input[type="text"] + input[type="text"] {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <form action="" method="post">
+      <dl>
+        <dt>
+          <label for="name">Full Name</label>
+        </dt>
+        <dd>
+          <input type="text" id="name" name="name" />
+        </dd>
+      </dl>
+
+      <dl>
+        <dt>
+          <label for="address1">Address</label>
+        </dt>
+        <dd>
+          <input type="text" id="address1" name="address1" />
+          <input type="text" name="address2" />
+        </dd>
+      </dl>
+
+      <dl class="city">
+        <dt>
+          <label for="city">City</label>
+        </dt>
+        <dd>
+          <input type="text" id="city" name="city" />
+        </dd>
+      </dl>
+
+      <dl class="state">
+        <dt>
+          <label for="state">State</label>
+        </dt>
+        <dd>
+          <select id="state" name="state">
+            <option selected>Texas</option>
+            <option>Los Angeles</option>
+            <option>California</option>
+          </select>
+        </dd>
+      </dl>
+
+      <dl class="zipcode">
+        <dt>
+          <label for="zipcode">Zipcode</label>
+        </dt>
+        <dd>
+          <input type="text" id="zipcode" name="zipcode" />
+        </dd>
+      </dl>
+    </form>
+
+  </body>
+
+</html>

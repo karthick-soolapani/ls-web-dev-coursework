@@ -1,0 +1,87 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #151515;
+  color: #f0f0f0;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+main {
+  background-color: #333;
+  margin: 0 auto 30px auto;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.main-photo {
+  margin-bottom: 2rem;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+/* Images */
+
+img {
+  background-color: #fff;
+  padding: 1%;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .thumbnails {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .thumbnails {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  h1 {
+    flex-basis: 100%;
+  }
+
+  .main-photo {
+    max-width: 950px;
+    margin-right: 50px;
+    flex: 2;
+  }
+
+  .thumbnails {
+    grid-template-columns: 1fr;
+    flex: 1;
+  }
+}

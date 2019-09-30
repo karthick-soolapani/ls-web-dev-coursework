@@ -1,0 +1,53 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #151515;
+  color: #f0f0f0;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+main {
+  background-color: #333;
+  margin: 0 auto 30px auto;
+  max-width: 1000px;
+  min-width: 500px;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.main-photo {
+  margin-bottom: 2rem;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.thumbnails {
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Images */
+
+img {
+  background-color: #fff;
+  padding: 1%;
+  width: 100%;
+}

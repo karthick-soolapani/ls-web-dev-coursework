@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css_reset.css">
+    <link rel="stylesheet" type="text/css" href="c09_project_contact_form.css">
+  </head>
+
+  <body>
+    <form action="#" method="post">
+      <h1>Contact Form</h1>
+      <fieldset>
+
+        <dl class="partial left name">
+          <dt><label for="first_name">First Name <span class="required">*</span></label></dt>
+          <dd><input type="text" id="first_name" name="first_name" required></dd>
+        </dl>
+
+        <dl class="partial right name">
+          <dt><label for="last_name">Last Name <span class="required">*</span></label></dt>
+          <dd><input type="text" id="last_name" name="last_name" required></dd>
+        </dl>
+
+        <dl>
+          <dt><label for="email">Email <span class="required">*</span></label></dt>
+          <dd><input type="email" id="email" name="email" placeholder="example@gmail.com" required></dd>
+        </dl>
+
+        <dl class="partial left city">
+          <dt><label for="city">City <span class="required">*</span></label></dt>
+          <dd><input type="text" id="city" name="city" required></dd>
+        </dl>
+
+        <dl class="partial left right state">
+          <dt><label for="state">State <span class="required">*</span></label></dt>
+          <dd>
+            <select id="state" name="state" required>
+              <option>AK</option>
+              <option>AL</option>
+              <option>AR</option>
+              <option>AZ</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DC</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>IA</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>MA</option>
+              <option>MD</option>
+              <option>ME</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MO</option>
+              <option>MS</option>
+              <option>MT</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>NE</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NV</option>
+              <option>NY</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VA</option>
+              <option>VT</option>
+              <option>WA</option>
+              <option>WI</option>
+              <option>WV</option>
+              <option>WY</option>
+            </select>
+          </dd>
+        </dl>
+
+        <dl  class="partial right zipcode">
+          <dt><label for="zipcode">Zipcode <span class="required">*</span></label></dt>
+          <dd><input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" maxlength="5" placeholder="#####" required></dd>
+        </dl>
+
+      </fieldset>
+
+      <fieldset>
+
+        <dl>
+          <dt><label>Which color do you like best?</label></dt>
+          <dd>
+            <ul>
+              <li>
+                <label>
+                  <input type="radio" name="favorite_color" value="red" checked>
+                  Red
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="radio" name="favorite_color" value="green">
+                  Green
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="radio" name="favorite_color" value="blue">
+                  Blue
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="radio" name="favorite_color" value="yellow">
+                  Yellow
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="radio" name="favorite_color" value="black">
+                  Black
+                </label>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><label>Which web technologies do you want to learn?</label></dt>
+          <dd>
+            <ul>
+              <li>
+                <label>
+                  <input type="checkbox" name="favorite_color" value="html">
+                  HTML
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" name="favorite_color" value="css">
+                  CSS
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input type="checkbox" name="favorite_color" value="javascript">
+                  Javascript
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" name="favorite_color" value="ruby">
+                  Ruby
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" name="favorite_color" value="python">
+                  Python
+                </label>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><label for="comment">Comment</label></dt>
+          <dd><textarea id="comment" name="comment" rows="6" cols="80" maxlength="500" placeholder="Max.500 characters"></textarea></dd>
+        </dl>
+
+      </fieldset>
+
+      <fieldset>
+        <input type="hidden" name="date" value="2019-08-12">
+        <input type="submit" value="Send">
+        <input type="reset">
+      </fieldset>
+    </form>
+  </body>
+
+</html>

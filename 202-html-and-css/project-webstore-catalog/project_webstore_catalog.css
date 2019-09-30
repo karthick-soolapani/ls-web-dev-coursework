@@ -1,0 +1,116 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Overall */
+
+body {
+  font: normal 1.25rem Helvetica, Arial, sans-serif;
+  background-color: #ffd505;
+  padding: 0 40px 40px;
+}
+
+body > * {
+  min-width: 400px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+header {
+  background-color: #047ec1;
+  padding: 30px 25px;
+  border-radius: 0 0 15px 15px;
+}
+
+h1 {
+  font-size: 2.375rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Main */
+
+main {
+  background-color: #ececec;
+  padding: 25px;
+  margin: 30px auto 0;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+ul {
+  padding: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 199.75px);
+  grid-template-rows: repeat(auto-fill, 235px);
+  grid-gap: 17px 17px;
+  justify-content: center;
+}
+
+ul li {
+  background-color: #fff;
+  padding: 15px;
+}
+
+ul label {
+  cursor: pointer;
+}
+
+ul figure {
+  height: 160px;
+}
+
+ul img {
+  display: block;
+  height: 140px;
+  margin: 0 auto;
+}
+
+ul h3 {
+  font-size: 1.1875rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+ul p {
+  font-size: 1rem;
+}
+
+/* Enlarge Image */
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input:checked + figure::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+input:checked + figure img {
+  position: absolute;
+  height: auto;
+  width: 400px;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+}

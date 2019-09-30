@@ -1,0 +1,90 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Overall */
+
+body {
+  align-items: center;
+  background-image: url("bg_body.gif");
+  color: #45494d;
+  display: flex;
+  flex-direction: column;
+  font: normal 1.25rem "Nunito Sans", Helvetica, Arial, sans-serif;
+  margin: 8px;
+  padding: 100px 50px;
+}
+
+body > * {
+  max-width: 1000px;
+  min-width: 600px;
+  width: 100%;
+}
+
+img {
+  display: block;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 90px;
+}
+
+/* Main */
+
+main {
+  background-color: #fff;
+  padding: 0 90px;
+  text-align: center;
+}
+
+section {
+  padding: 70px 0;
+}
+
+section + section {
+  padding-top: 50px;
+}
+
+h2 {
+  color: #45494d;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+h3 {
+  color: #3e98b2;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+p {
+  margin-top: 20px;
+}
+
+/* Footer */
+
+footer {
+  background-color: #e7e7e7;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+footer a {
+  margin: 0 25px;
+  padding: 35px;
+}

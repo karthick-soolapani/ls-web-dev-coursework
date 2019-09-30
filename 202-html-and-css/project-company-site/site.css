@@ -1,0 +1,172 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Overall */
+
+body {
+  font: normal 1.25rem "Nunito Sans", Helvetica, Arial, sans-serif;
+  color: #45494d;
+  text-align: center;
+}
+
+header,
+.content,
+footer {
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Header */
+
+header {
+  background: url("images/bg_body.gif") #2f2840 50% 0 repeat;
+  padding-top: 45px;
+}
+
+h1 {
+  margin: 80px 0;
+}
+
+header nav a {
+  display: block;
+  padding: 40px 35px;
+  color: #cacaca;
+  font-size: 1.625rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+header nav a.active {
+  color: #6db9ff;
+  font-weight: 800;
+}
+
+/* Main */
+
+main {
+  padding: 50px 5% 85px;
+  background-color: #fff;
+}
+
+.content {
+  max-width: 1000px;
+}
+
+.content h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 70px 0 40px;
+}
+
+.content h2::before,
+.content h2::after {
+  content: "\2022";
+  font-size: 1.5rem;
+  vertical-align: 5px;
+  padding: 0 25px;
+}
+
+.content h3 {
+  color: #3e59b2;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 20px 0;
+}
+
+.content p {
+  padding: 0 10%;
+}
+
+/* Main - Project Page */
+
+#projects h2 {
+  margin-bottom: 35px;
+}
+
+#projects img {
+  width: 100%;
+  margin: 35px 0 45px;
+}
+
+/* Main - Team Page */
+
+#team ul {
+  margin: 85px 0;
+}
+
+#team li {
+  margin: 30px;
+}
+
+#team img {
+  margin-bottom: 30px;
+}
+
+#team ul a {
+  color: #3e59b2;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* Footer */
+
+footer {
+  background-color: #e7e7e7;
+  padding: 85px 0 45px;
+}
+
+footer p {
+  color: #b1b1b1;
+  margin: 0 auto;
+}
+
+footer ul a {
+  background: url("images/icons_social_media.png") no-repeat;
+  width: 46px;
+  height: 46px;
+  display: block;
+  margin: 35px 60px;
+  overflow: hidden;
+  text-indent: -8000px;
+}
+
+a.twitter {
+  background-position: 0 0;
+}
+
+a.facebook {
+  background-position: 0 -46px;
+}
+
+a.email {
+  background-position: 0 -92px;
+}
+
+a.instagram {
+  background-position: 0 -138px;
+}

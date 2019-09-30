@@ -1,0 +1,290 @@
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Top Level styling */
+
+body {
+  color: #545459;
+  font: normal 1rem Helvetica, Arial, sans-serif;
+  margin: 10px;
+}
+
+article {
+  border: 2px solid #999;
+  margin: 0 auto;
+  padding: 20px;
+  width: 1000px;
+}
+
+/* Overall Styling */
+
+h1, h2, h3 {
+  color: #ce4a4a;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+p {
+  line-height: 2;
+  margin: 1em 0 2em;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  width: 100%;
+}
+
+code {
+  background-color: rgba(63, 73, 77, 0.1);
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.4rem;
+}
+
+pre code {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed black;
+  margin: 50px 0 30px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Inline Elements */
+
+.inline ul {
+  border: 1px dashed black;
+  margin: 3rem;
+  padding: 30px;
+  width: 70%;
+}
+
+.inline li {
+  display: inline;
+}
+
+.inline .margin a {
+  margin: 30px;
+}
+
+.inline .padding a {
+  background-color: green;
+  color: white;
+  padding: 30px;
+}
+
+.inline .float::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.inline .float a {
+  background-color: green;
+  border: 3px solid darkgreen;
+  color: white;
+  float: left;
+  margin: 15px;
+  padding: 25px;
+  text-align: center;
+  width: 120px;
+}
+
+/* Block Elements */
+
+.block .default {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.block .height {
+  background-color: green;
+  color: white;
+  height: 60px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.block .width {
+  background-color: tomato;
+  color: white;
+  width: 90px;
+}
+
+.block .width-height {
+  background-color: pink;
+  color: white;
+  height: 120px;
+  margin: 20px;
+  padding: 20px;
+  width: 180px;
+}
+
+.block-float .default::after,
+.block-float .width-height::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.block-float .default .box-1 {
+  background-color: dodgerblue;
+  border: 1px solid red;
+  color: white;
+  float: left;
+}
+
+.block-float .default .box-2 {
+  background-color: tomato;
+  border: 1px solid red;
+  color: white;
+  float: right;
+}
+
+.block-float .width-height .box-1 {
+  background-color: dodgerblue;
+  color: white;
+  float: left;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  width: 40%;
+}
+
+.block-float .width-height .box-2 {
+  background-color: tomato;
+  color: white;
+  float: right;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  width: 50%;
+}
+
+.block-float .inline a {
+  background-color: dodgerblue;
+  color: white;
+  display: block;
+  line-height: 30px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Inline-Block */
+
+.inline-block nav {
+  text-align: center;
+}
+
+.inline-block nav a {
+  background-color: dodgerblue;
+  border: 1px solid #1b95e0;
+  color: white;
+  display: inline-block;
+  margin: 20px 8px 25px;
+  padding: 20px 30px;
+  width: 180px;
+}
+
+/* Floats */
+
+.floats .box-1,
+.floats .box-2 {
+  color: white;
+  float: left;
+  font-weight: bold;
+  line-height: 100px;
+  text-align: center;
+  width: 50%;
+}
+
+.floats .box-1 {
+  background-color: tomato;
+}
+
+.floats .box-2 {
+  background-color: dodgerblue;
+}
+
+.floats .box-3 {
+  background-color: green;
+  clear: both;
+  color: white;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Positioning */
+
+.positioning ul {
+  font-style: italic;
+  line-height: 2;
+  list-style: disc;
+  margin: 0 0 40px 40px;
+}
+
+.positioning .fixed div {
+  background-color: dodgerblue;
+  border-radius: 10px;
+  bottom: 50px;
+  color: white;
+  left: 35px;
+  padding: 25px 35px;
+  position: fixed;
+  text-align: center;
+  width: 225px;
+  z-index: 1;
+}
+
+.positioning .relative div {
+  background-color: tomato;
+  border-radius: 10px;
+  bottom: -30px;
+  color: white;
+  left: -90px;
+  padding: 25px 35px;
+  position: relative;
+  text-align: center;
+  width: 325px;
+}
+
+.positioning .absolute {
+  position: relative;
+}
+
+.positioning .absolute div {
+  background-color: green;
+  border-radius: 10px;
+  color: white;
+  left: 230px;
+  padding: 25px 35px;
+  position: absolute;
+  text-align: center;
+  top: -35px;
+  width: 225px;
+}

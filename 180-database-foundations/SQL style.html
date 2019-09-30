@@ -1,0 +1,1539 @@
+<!doctype html>
+<html lang="en-au">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <title property="og:title">SQL style guide by Simon Holywell</title>
+        <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://www.sqlstyle.guide/static/style.css">
+
+        <link rel="icon" type="image/png" href="https://www.sqlstyle.guide/static/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="https://www.sqlstyle.guide/static/favicon-16x16.png" sizes="16x16" />
+
+        <meta content="website" property="og:type">
+        <meta content="https://www.sqlstyle.guide" property="og:url">
+        <meta content="2019-02-01T02:36:30+00:00" property="og:updated_time">
+        <meta content="https://www.facebook.com/holywell" property="article:author">
+        <meta content="https://www.facebook.com/holywell" property="article:publisher">
+        <meta content="2019-02-01T02:36:30+00:00" property="article:modified_time">
+        <meta content="" property="article:section">
+        <meta content="A consistent code style guide for SQL to ensure legible and maintainable projects" itemprop="description" name="description" property="og:description">
+        <meta content="sql, style guide, code style guide, simon holywell, holywell" itemprop="keywords" name="keywords" property="article:tag">
+        <meta content="summary" name="twitter:card">
+        <meta content="SQL style guide by Simon Holywell" name="twitter:title">
+        <meta content="A consistent code style guide for SQL to ensure legible and maintainable projects" name="twitter:description">
+        <meta content="@treffynnon" name="twitter:site">
+        <meta content="@treffynnon" name="twitter:creator">
+        <meta content="sqlstyle.guide" name="twitter:domain">
+
+        <link href"//plus.google.com/+SimonHolywell" rel="author">
+
+        <link rel="canonical" href="https://www.sqlstyle.guide/">
+        <link rel="alternate" hreflang="x-default" href="https://www.sqlstyle.guide/">
+        <link rel="alternate" hreflang="de" href="https://www.sqlstyle.guide/de/">
+<link rel="alternate" hreflang="en" href="https://www.sqlstyle.guide/">
+<link rel="alternate" hreflang="ja" href="https://www.sqlstyle.guide/ja/">
+<link rel="alternate" hreflang="pt-BR" href="https://www.sqlstyle.guide/pt-br/">
+<link rel="alternate" hreflang="ru" href="https://www.sqlstyle.guide/ru/">
+<link rel="alternate" hreflang="zh" href="https://www.sqlstyle.guide/zh/">
+<link rel="alternate" hreflang="zh-TW" href="https://www.sqlstyle.guide/zh-tw/">
+
+    </head>
+    <body itemscope itemtype="http://schema.org/TechArticle">
+        <meta itemprop="wordCount" content="4908">
+        <meta itemprop="about" content="A consistent code style guide for SQL to ensure legible and maintainable projects">
+        <meta itemprop="audience" content="SQL programmers">
+        <meta itemprop="license" content="https://creativecommons.org/licenses/by-sa/4.0/">
+        <meta itemprop="version" content="1.0.1">
+        <meta itemprop="proficiencyLevel" content="Beginner">
+        <meta itemprop="dependencies" content="SQL knowledge">
+        <meta itemprop="copyrightHolder" content="Simon Holywell">
+        <nav id="page-nav">
+    <a href="#" id="to-top" class="toplink">↑</a>
+</nav>
+<div id="translation-bar">
+    <div class="wrap">
+        <select class="language-drop" id="language-drop">
+            <option value="de">
+    Deutsch (German)
+</option>
+<option value="en" selected="selected">
+    English
+</option>
+<option value="ja">
+    日本語 (Japanese)
+</option>
+<option value="pt-BR">
+    Português (BR) (Portuguese - Brazil)
+</option>
+<option value="ru">
+    Русский (Russian)
+</option>
+<option value="zh">
+    简体中文 (Simplified Chinese)
+</option>
+<option value="zh-TW">
+    正體中文 (Traditional Chinese)
+</option>
+
+        </select>
+        <div class="language-ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2411.2 2794"><style>.st0{fill:#fff}.st1,.st2{fill-rule:evenodd;clip-rule:evenodd}.st2{fill:#fff}</style><g id="Layer_x5F_1_x5F_1"><path d="M1204.6 359.2L271.8 30v2030.1l932.8-301.8z"/><path d="M1182.2 358.1L2150.6 29v2030l-968.4-301.7z" class="st0"/><path d="M30 2415.4l1152.2-384V357.9L30 742z" class="st0"/><path d="M1707.2 2440.7l163.3 268.7 86.1-249.6zM421.7 934.8c-6.1-6 8 49.1 27.6 68.9 34.8 35.1 61.9 39.6 76.4 40.2 32 1.3 71.5-8 94.9-17.8 22.7-9.7 62.4-30 77.5-59.6 3.2-6.3 11.9-17 6.4-43.2-4.2-20.2-17-27.3-32.7-26.2-15.7 1.1-63.2 13.7-86.1 20.8-23 7-70.3 21.4-90.9 25.8-20.5 4.5-65.8-2-73.1-8.9zm581.4 658.9c-9.1-3.3-196.9-81.1-223.6-93.9-21.8-10.5-75.2-33.1-100.4-43.3 70.8-109.2 115.5-191.6 121.5-204.1 11-23 86-169.6 87.7-178.7 1.7-9.1 3.8-42.9 2.2-51-1.7-8.2-29.1 7.6-66.4 20.2-37.4 12.6-108.4 58.8-135.8 64.6-27.5 5.7-115.5 39.1-160.5 54-45 14.9-130.2 40.9-165.2 50.4-35.1 9.5-65.7 10.2-85.3 16.2 0 0 2.6 27.5 7.8 35.7 5.2 8.2 23.7 28.4 45.3 34.1 21.6 5.7 57.3 3.4 73.6-.3 16.3-3.8 44.4-17.5 48.2-23.6 3.8-6.1-2-24.9 4.5-30.6 6.5-5.6 92.2-25.7 124.6-35.4 32.4-10 156.3-52.6 173.1-50.5-5.3 17.7-105 215.1-137.1 274-32.1 58.9-218.6 318-258.3 363.6-30.1 34.7-103.2 123.5-128.5 143.6 6.4 1.8 51.6-2.1 59.9-7.2 51.3-31.6 136.9-138.1 164.4-170.5 81.9-96 153.8-196.8 210.8-283.4h.1c11.1 4.6 100.9 77.8 124.4 94 23.4 16.2 115.9 67.8 136 76.4 20 8.7 97.1 44.2 100.3 32.2 3-12.2-14.2-83.1-23.3-86.5z"/><path d="M569 2572c18 11 35 20 54 29 38 19 81 39 122 54 56 21 112 38 168 51 31 7 65 13 98 18 3 0 92 11 110 11h90c35-3 68-5 103-10 28-4 59-9 89-16 22-5 45-10 67-17 21-6 45-14 68-22 15-5 31-12 47-18 13-6 29-13 44-19 18-8 39-19 59-29 16-8 34-18 51-28 13-7 43-30 59-30 18 0 30 16 30 30 0 29-39 38-57 51-19 13-42 23-62 34-40 21-81 39-120 54-51 19-107 37-157 49-19 4-38 9-57 12-10 2-114 18-143 18h-132c-35-3-72-7-107-12-31-5-64-11-95-18-24-5-50-12-73-19-40-11-79-25-117-40-69-26-141-60-209-105-12-8-13-16-13-25 0-15 11-29 29-29 16 0 48 23 54 26zm582-563L61 2372V764l1090-363v1608zm61-1655v1680c-1 5-3 10-7 15-2 3-6 7-9 8-25 10-1151 388-1166 388-12 0-23-8-29-21 0-1-1-2-1-4V739c2-5 3-12 7-16 8-11 22-13 31-16 17-6 1126-378 1142-378 10 0 32 7 32 25z" class="st1"/><path d="M2120 2017l-907-282V380l907-308v1945zm61-1985v2023c-1 23-17 33-32 33-13 0-107-32-123-37-126-39-253-78-378-117-28-9-57-18-84-27-24-7-50-15-74-23-107-33-216-66-323-102-4-1-14-15-14-18V351c2-5 4-11 9-15 8-9 351-123 486-168 36-13 487-168 501-168 18 0 32 13 32 32z" class="st1"/><path d="M2411.2 2440.7l-1211.7-386.2 5.1-1681.3 1206.6 384z"/><path d="M1800.3 1124.6L1681.4 1412l218.6 66.3-99.7-353.7zM1729 853.2l156.1 47.3 284.4 1025-160.3-48.7-57.6-210.4-331.4-100.4-71.3 171.4-160.4-48.7L1729 853.2z" class="st2"/></g></svg></div>
+    </div>
+</div>
+<header class="top">
+    <div class="wrap">
+        <h1 itemprop="name">SQL Style Guide</h1>
+        <p class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">by
+            <a href="https://www.simonholywell.com/?utm_source=sqlstyle.guide-sqlstyle.guide&amp;utm_medium=link&amp;utm_campaign=header" itemprop="url"><span itemprop="name">Simon Holywell</span></a> &middot;
+            <a href="https://twitter.com/treffynnon">@Treffynnon</a>
+        </p>
+        <p class="twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" 
+               data-url="https://www.sqlstyle.guide" data-text="SQL style guide by @treffynnon: A consistent code style guide for SQL to ensure legible and maintainable projects"
+               data-size="large" data-dnt="true">Tweet</a>
+        </p>
+        
+    </div>
+</header>
+
+        <main class="article-body wrap" id="content" itemprop="articleBody" lang="en">
+            <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#general" id="markdown-toc-general">General</a>    <ul>
+      <li><a href="#do" id="markdown-toc-do">Do</a></li>
+      <li><a href="#avoid" id="markdown-toc-avoid">Avoid</a></li>
+    </ul>
+  </li>
+  <li><a href="#naming-conventions" id="markdown-toc-naming-conventions">Naming conventions</a>    <ul>
+      <li><a href="#general-1" id="markdown-toc-general-1">General</a></li>
+      <li><a href="#tables" id="markdown-toc-tables">Tables</a></li>
+      <li><a href="#columns" id="markdown-toc-columns">Columns</a></li>
+      <li><a href="#aliasing-or-correlations" id="markdown-toc-aliasing-or-correlations">Aliasing or correlations</a></li>
+      <li><a href="#stored-procedures" id="markdown-toc-stored-procedures">Stored procedures</a></li>
+      <li><a href="#uniform-suffixes" id="markdown-toc-uniform-suffixes">Uniform suffixes</a></li>
+    </ul>
+  </li>
+  <li><a href="#query-syntax" id="markdown-toc-query-syntax">Query syntax</a>    <ul>
+      <li><a href="#reserved-words" id="markdown-toc-reserved-words">Reserved words</a></li>
+      <li><a href="#white-space" id="markdown-toc-white-space">White space</a></li>
+      <li><a href="#indentation" id="markdown-toc-indentation">Indentation</a></li>
+      <li><a href="#preferred-formalisms" id="markdown-toc-preferred-formalisms">Preferred formalisms</a></li>
+    </ul>
+  </li>
+  <li><a href="#create-syntax" id="markdown-toc-create-syntax">Create syntax</a>    <ul>
+      <li><a href="#choosing-data-types" id="markdown-toc-choosing-data-types">Choosing data types</a></li>
+      <li><a href="#specifying-default-values" id="markdown-toc-specifying-default-values">Specifying default values</a></li>
+      <li><a href="#constraints-and-keys" id="markdown-toc-constraints-and-keys">Constraints and keys</a></li>
+      <li><a href="#designs-to-avoid" id="markdown-toc-designs-to-avoid">Designs to avoid</a></li>
+    </ul>
+  </li>
+  <li><a href="#appendix" id="markdown-toc-appendix">Appendix</a>    <ul>
+      <li><a href="#reserved-keyword-reference" id="markdown-toc-reserved-keyword-reference">Reserved keyword reference</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="sql-style-guide">SQL style guide</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>You can use this set of guidelines, <a href="https://github.com/treffynnon/sqlstyle.guide/fork" title="Fork SQL style guide on GitHub">fork them</a> or make your own - the
+key here is that you pick a style and stick to it. To suggest changes
+or fix bugs please open an <a href="https://github.com/treffynnon/sqlstyle.guide/issues" title="SQL style guide issues on GitHub">issue</a> or <a href="https://github.com/treffynnon/sqlstyle.guide/pulls/" title="SQL style guide pull requests on GitHub">pull request</a> on GitHub.</p>
+
+<p>These guidelines are designed to be compatible with Joe Celko’s <a href="https://www.amazon.com/gp/product/0120887975/ref=as_li_ss_tl?ie=UTF8&amp;linkCode=ll1&amp;tag=treffynnon-20&amp;linkId=9c88eac8cd420e979675c815771313d5" title="Joe Celko's SQL Programming Style (The Morgan Kaufmann Series in Data Management Systems)">SQL Programming
+Style</a> book to make adoption for teams who have already read that book
+easier. This guide is a little more opinionated in some areas and in others a
+little more relaxed. It is certainly more succinct where <a href="https://www.amazon.com/gp/product/0120887975/ref=as_li_ss_tl?ie=UTF8&amp;linkCode=ll1&amp;tag=treffynnon-20&amp;linkId=9c88eac8cd420e979675c815771313d5" title="Joe Celko's SQL Programming Style (The Morgan Kaufmann Series in Data Management Systems)">Celko’s book</a>
+contains anecdotes and reasoning behind each rule as thoughtful prose.</p>
+
+<p>It is easy to include this guide in <a href="https://raw.githubusercontent.com/treffynnon/sqlstyle.guide/gh-pages/_includes/sqlstyle.guide.md" title="Download the guide in Markdown format">Markdown format</a> as a part of a
+project’s code base or reference it here for anyone on the project to freely
+read—much harder with a physical book.</p>
+
+<p>SQL style guide by <a href="https://www.simonholywell.com/?utm_source=sqlstyle.guide&amp;utm_medium=link&amp;utm_campaign=md-document" title="SimonHolywell.com">Simon Holywell</a> is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" title="Creative Commons Attribution-ShareAlike 4.0 International License">Creative Commons
+Attribution-ShareAlike 4.0 International License</a>.
+Based on a work at <a href="http://www.sqlstyle.guide" title="SQL style guide by Simon Holywell">http://www.sqlstyle.guide</a>.</p>
+
+<h2 id="general">General</h2>
+
+<h3 id="do">Do</h3>
+
+<ul>
+  <li>Use consistent and descriptive identifiers and names.</li>
+  <li>Make judicious use of white space and indentation to make code easier to read.</li>
+  <li>Store <a href="https://en.wikipedia.org/wiki/ISO_8601" title="Wikipedia: ISO 8601">ISO-8601</a> compliant time and date information
+(<code class="highlighter-rouge">YYYY-MM-DD HH:MM:SS.SSSSS</code>).</li>
+  <li>Try to use only standard SQL functions instead of vendor specific functions for
+reasons of portability.</li>
+  <li>Keep code succinct and devoid of redundant SQL—such as unnecessary quoting or
+parentheses or <code class="highlighter-rouge">WHERE</code> clauses that can otherwise be derived.</li>
+  <li>Include comments in SQL code where necessary. Use the C style opening <code class="highlighter-rouge">/*</code> and
+closing <code class="highlighter-rouge">*/</code> where possible otherwise precede comments with <code class="highlighter-rouge">--</code> and finish
+them with a new line.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">file_hash</span>  <span class="c1">-- stored ssdeep hash</span>
+  <span class="k">FROM</span> <span class="n">file_system</span>
+ <span class="k">WHERE</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s1">'.vimrc'</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Updating the file record after writing to the file */</span>
+<span class="k">UPDATE</span> <span class="n">file_system</span>
+   <span class="k">SET</span> <span class="n">file_modified_date</span> <span class="o">=</span> <span class="s1">'1980-02-22 13:19:01.00000'</span><span class="p">,</span>
+       <span class="n">file_size</span> <span class="o">=</span> <span class="mi">209732</span>
+ <span class="k">WHERE</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s1">'.vimrc'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="avoid">Avoid</h3>
+
+<ul>
+  <li>CamelCase—it is difficult to scan quickly.</li>
+  <li>Descriptive prefixes or Hungarian notation such as <code class="highlighter-rouge">sp_</code> or <code class="highlighter-rouge">tbl</code>.</li>
+  <li>Plurals—use the more natural collective term where possible instead. For example
+<code class="highlighter-rouge">staff</code> instead of <code class="highlighter-rouge">employees</code> or <code class="highlighter-rouge">people</code> instead of <code class="highlighter-rouge">individuals</code>.</li>
+  <li>Quoted identifiers—if you must use them then stick to SQL92 double quotes for
+portability (you may need to configure your SQL server to support this depending
+on vendor).</li>
+  <li>Object oriented design principles should not be applied to SQL or database
+structures.</li>
+</ul>
+
+<h2 id="naming-conventions">Naming conventions</h2>
+
+<h3 id="general-1">General</h3>
+
+<ul>
+  <li>Ensure the name is unique and does not exist as a
+<a href="#reserved-keyword-reference" title="Reserved keyword reference">reserved keyword</a>.</li>
+  <li>Keep the length to a maximum of 30 bytes—in practice this is 30 characters
+unless you are using multi-byte character set.</li>
+  <li>Names must begin with a letter and may not end with an underscore.</li>
+  <li>Only use letters, numbers and underscores in names.</li>
+  <li>Avoid the use of multiple consecutive underscores—these can be hard to read.</li>
+  <li>Use underscores where you would naturally include a space in the name (first
+name becomes <code class="highlighter-rouge">first_name</code>).</li>
+  <li>Avoid abbreviations and if you have to use them make sure they are commonly
+understood.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">first_name</span>
+  <span class="k">FROM</span> <span class="n">staff</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="tables">Tables</h3>
+
+<ul>
+  <li>Use a collective name or, less ideally, a plural form. For example (in order of
+preference) <code class="highlighter-rouge">staff</code> and <code class="highlighter-rouge">employees</code>.</li>
+  <li>Do not prefix with <code class="highlighter-rouge">tbl</code> or any other such descriptive prefix or Hungarian
+notation.</li>
+  <li>Never give a table the same name as one of its columns and vice versa.</li>
+  <li>Avoid, where possible, concatenating two table names together to create the name
+of a relationship table. Rather than <code class="highlighter-rouge">cars_mechanics</code> prefer <code class="highlighter-rouge">services</code>.</li>
+</ul>
+
+<h3 id="columns">Columns</h3>
+
+<ul>
+  <li>Always use the singular name.</li>
+  <li>Where possible avoid simply using <code class="highlighter-rouge">id</code> as the primary identifier for the table.</li>
+  <li>Do not add a column with the same name as its table and vice versa.</li>
+  <li>Always use lowercase except where it may make sense not to such as proper nouns.</li>
+</ul>
+
+<h3 id="aliasing-or-correlations">Aliasing or correlations</h3>
+
+<ul>
+  <li>Should relate in some way to the object or expression they are aliasing.</li>
+  <li>As a rule of thumb the correlation name should be the first letter of each word
+in the object’s name.</li>
+  <li>If there is already a correlation with the same name then append a number.</li>
+  <li>Always include the <code class="highlighter-rouge">AS</code> keyword—makes it easier to read as it is explicit.</li>
+  <li>For computed data (<code class="highlighter-rouge">SUM()</code> or <code class="highlighter-rouge">AVG()</code>) use the name you would give it were it
+a column defined in the schema.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">first_name</span> <span class="k">AS</span> <span class="n">fn</span>
+  <span class="k">FROM</span> <span class="n">staff</span> <span class="k">AS</span> <span class="n">s1</span>
+  <span class="k">JOIN</span> <span class="n">students</span> <span class="k">AS</span> <span class="n">s2</span>
+    <span class="k">ON</span> <span class="n">s2</span><span class="p">.</span><span class="n">mentor_id</span> <span class="o">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">staff_num</span><span class="p">;</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">monitor_tally</span><span class="p">)</span> <span class="k">AS</span> <span class="n">monitor_total</span>
+  <span class="k">FROM</span> <span class="n">staff</span> <span class="k">AS</span> <span class="n">s</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="stored-procedures">Stored procedures</h3>
+
+<ul>
+  <li>The name must contain a verb.</li>
+  <li>Do not prefix with <code class="highlighter-rouge">sp_</code> or any other such descriptive prefix or Hungarian
+notation.</li>
+</ul>
+
+<h3 id="uniform-suffixes">Uniform suffixes</h3>
+
+<p>The following suffixes have a universal meaning ensuring the columns can be read
+and understood easily from SQL code. Use the correct suffix where appropriate.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">_id</code>—a unique identifier such as a column that is a primary key.</li>
+  <li><code class="highlighter-rouge">_status</code>—flag value or some other status of any type such as
+<code class="highlighter-rouge">publication_status</code>.</li>
+  <li><code class="highlighter-rouge">_total</code>—the total or sum of a collection of values.</li>
+  <li><code class="highlighter-rouge">_num</code>—denotes the field contains any kind of number.</li>
+  <li><code class="highlighter-rouge">_name</code>—signifies a name such as <code class="highlighter-rouge">first_name</code>.</li>
+  <li><code class="highlighter-rouge">_seq</code>—contains a contiguous sequence of values.</li>
+  <li><code class="highlighter-rouge">_date</code>—denotes a column that contains the date of something.</li>
+  <li><code class="highlighter-rouge">_tally</code>—a count.</li>
+  <li><code class="highlighter-rouge">_size</code>—the size of something such as a file size or clothing.</li>
+  <li><code class="highlighter-rouge">_addr</code>—an address for the record could be physical or intangible such as
+<code class="highlighter-rouge">ip_addr</code>.</li>
+</ul>
+
+<h2 id="query-syntax">Query syntax</h2>
+
+<h3 id="reserved-words">Reserved words</h3>
+
+<p>Always use uppercase for the <a href="#reserved-keyword-reference" title="Reserved keyword reference">reserved keywords</a>
+like <code class="highlighter-rouge">SELECT</code> and <code class="highlighter-rouge">WHERE</code>.</p>
+
+<p>It is best to avoid the abbreviated keywords and use the full length ones where
+available (prefer <code class="highlighter-rouge">ABSOLUTE</code> to <code class="highlighter-rouge">ABS</code>).</p>
+
+<p>Do not use database server specific keywords where an ANSI SQL keyword already
+exists performing the same function. This helps to make code more portable.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">model_num</span>
+  <span class="k">FROM</span> <span class="n">phones</span> <span class="k">AS</span> <span class="n">p</span>
+ <span class="k">WHERE</span> <span class="n">p</span><span class="p">.</span><span class="n">release_date</span> <span class="o">&gt;</span> <span class="s1">'2014-09-30'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="white-space">White space</h3>
+
+<p>To make the code easier to read it is important that the correct complement of
+spacing is used. Do not crowd code or remove natural language spaces.</p>
+
+<h4 id="spaces">Spaces</h4>
+
+<p>Spaces should be used to line up the code so that the root keywords all end on
+the same character boundary. This forms a river down the middle making it easy for
+the readers eye to scan over the code and separate the keywords from the
+implementation detail. Rivers are <a href="http://practicaltypography.com/one-space-between-sentences.html" title="Practical Typography: one space between sentences">bad in typography</a>, but helpful here.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">SELECT</span> <span class="n">f</span><span class="p">.</span><span class="n">species_name</span><span class="p">,</span>
+        <span class="k">AVG</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="k">AS</span> <span class="n">average_height</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">diameter</span><span class="p">)</span> <span class="k">AS</span> <span class="n">average_diameter</span>
+   <span class="k">FROM</span> <span class="n">flora</span> <span class="k">AS</span> <span class="n">f</span>
+  <span class="k">WHERE</span> <span class="n">f</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Banksia'</span>
+     <span class="k">OR</span> <span class="n">f</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Sheoak'</span>
+     <span class="k">OR</span> <span class="n">f</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Wattle'</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">f</span><span class="p">.</span><span class="n">species_name</span><span class="p">,</span> <span class="n">f</span><span class="p">.</span><span class="n">observation_date</span><span class="p">)</span>
+
+  <span class="k">UNION</span> <span class="k">ALL</span>
+
+<span class="p">(</span><span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">species_name</span><span class="p">,</span>
+        <span class="k">AVG</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="k">AS</span> <span class="n">average_height</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">diameter</span><span class="p">)</span> <span class="k">AS</span> <span class="n">average_diameter</span>
+   <span class="k">FROM</span> <span class="n">botanic_garden_flora</span> <span class="k">AS</span> <span class="n">b</span>
+  <span class="k">WHERE</span> <span class="n">b</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Banksia'</span>
+     <span class="k">OR</span> <span class="n">b</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Sheoak'</span>
+     <span class="k">OR</span> <span class="n">b</span><span class="p">.</span><span class="n">species_name</span> <span class="o">=</span> <span class="s1">'Wattle'</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">b</span><span class="p">.</span><span class="n">species_name</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">observation_date</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notice that <code class="highlighter-rouge">SELECT</code>, <code class="highlighter-rouge">FROM</code>, etc. are all right aligned while the actual column
+names and implementation specific details are left aligned.</p>
+
+<p>Although not exhaustive always include spaces:</p>
+
+<ul>
+  <li>before and after equals (<code class="highlighter-rouge">=</code>)</li>
+  <li>after commas (<code class="highlighter-rouge">,</code>)</li>
+  <li>surrounding apostrophes (<code class="highlighter-rouge">'</code>) where not within parentheses or with a trailing
+comma or semicolon.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">release_date</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">recording_date</span>
+  <span class="k">FROM</span> <span class="n">albums</span> <span class="k">AS</span> <span class="n">a</span>
+ <span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'Charcoal Lane'</span>
+    <span class="k">OR</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'The New Danger'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="line-spacing">Line spacing</h4>
+
+<p>Always include newlines/vertical space:</p>
+
+<ul>
+  <li>before <code class="highlighter-rouge">AND</code> or <code class="highlighter-rouge">OR</code></li>
+  <li>after semicolons to separate queries for easier reading</li>
+  <li>after each keyword definition</li>
+  <li>after a comma when separating multiple columns into logical groups</li>
+  <li>to separate code into related sections, which helps to ease the readability of
+large chunks of code.</li>
+</ul>
+
+<p>Keeping all the keywords aligned to the righthand side and the values left aligned
+creates a uniform gap down the middle of query. It makes it much easier to scan
+the query definition over quickly too.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">albums</span> <span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">release_date</span><span class="p">,</span> <span class="n">recording_date</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="s1">'Charcoal Lane'</span><span class="p">,</span> <span class="s1">'1990-01-01 01:01:01.00000'</span><span class="p">,</span> <span class="s1">'1990-01-01 01:01:01.00000'</span><span class="p">),</span>
+       <span class="p">(</span><span class="s1">'The New Danger'</span><span class="p">,</span> <span class="s1">'2008-01-01 01:01:01.00000'</span><span class="p">,</span> <span class="s1">'1990-01-01 01:01:01.00000'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">albums</span>
+   <span class="k">SET</span> <span class="n">release_date</span> <span class="o">=</span> <span class="s1">'1990-01-01 01:01:01.00000'</span>
+ <span class="k">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'The New Danger'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+       <span class="n">a</span><span class="p">.</span><span class="n">release_date</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">recording_date</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">production_date</span> <span class="c1">-- grouped dates together</span>
+  <span class="k">FROM</span> <span class="n">albums</span> <span class="k">AS</span> <span class="n">a</span>
+ <span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'Charcoal Lane'</span>
+    <span class="k">OR</span> <span class="n">a</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'The New Danger'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="indentation">Indentation</h3>
+
+<p>To ensure that SQL is readable it is important that standards of indentation
+are followed.</p>
+
+<h4 id="joins">Joins</h4>
+
+<p>Joins should be indented to the other side of the river and grouped with a new
+line where necessary.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">last_name</span>
+  <span class="k">FROM</span> <span class="n">riders</span> <span class="k">AS</span> <span class="n">r</span>
+       <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">bikes</span> <span class="k">AS</span> <span class="n">b</span>
+       <span class="k">ON</span> <span class="n">r</span><span class="p">.</span><span class="n">bike_vin_num</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">vin_num</span>
+          <span class="k">AND</span> <span class="n">b</span><span class="p">.</span><span class="n">engine_tally</span> <span class="o">&gt;</span> <span class="mi">2</span>
+
+       <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">crew</span> <span class="k">AS</span> <span class="k">c</span>
+       <span class="k">ON</span> <span class="n">r</span><span class="p">.</span><span class="n">crew_chief_last_name</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">last_name</span>
+          <span class="k">AND</span> <span class="k">c</span><span class="p">.</span><span class="n">chief</span> <span class="o">=</span> <span class="s1">'Y'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="subqueries">Subqueries</h4>
+
+<p>Subqueries should also be aligned to the right side of the river and then laid
+out using the same style as any other query. Sometimes it will make sense to have
+the closing parenthesis on a new line at the same character position as its
+opening partner—this is especially true where you have nested subqueries.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">last_name</span><span class="p">,</span>
+       <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="k">YEAR</span><span class="p">(</span><span class="n">championship_date</span><span class="p">))</span>
+          <span class="k">FROM</span> <span class="n">champions</span> <span class="k">AS</span> <span class="k">c</span>
+         <span class="k">WHERE</span> <span class="k">c</span><span class="p">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">last_name</span>
+           <span class="k">AND</span> <span class="k">c</span><span class="p">.</span><span class="n">confirmed</span> <span class="o">=</span> <span class="s1">'Y'</span><span class="p">)</span> <span class="k">AS</span> <span class="n">last_championship_year</span>
+  <span class="k">FROM</span> <span class="n">riders</span> <span class="k">AS</span> <span class="n">r</span>
+ <span class="k">WHERE</span> <span class="n">r</span><span class="p">.</span><span class="n">last_name</span> <span class="k">IN</span>
+       <span class="p">(</span><span class="k">SELECT</span> <span class="k">c</span><span class="p">.</span><span class="n">last_name</span>
+          <span class="k">FROM</span> <span class="n">champions</span> <span class="k">AS</span> <span class="k">c</span>
+         <span class="k">WHERE</span> <span class="k">YEAR</span><span class="p">(</span><span class="n">championship_date</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s1">'2008'</span>
+           <span class="k">AND</span> <span class="k">c</span><span class="p">.</span><span class="n">confirmed</span> <span class="o">=</span> <span class="s1">'Y'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="preferred-formalisms">Preferred formalisms</h3>
+
+<ul>
+  <li>Make use of <code class="highlighter-rouge">BETWEEN</code> where possible instead of combining multiple statements
+with <code class="highlighter-rouge">AND</code>.</li>
+  <li>Similarly use <code class="highlighter-rouge">IN()</code> instead of multiple <code class="highlighter-rouge">OR</code> clauses.</li>
+  <li>Where a value needs to be interpreted before leaving the database use the <code class="highlighter-rouge">CASE</code>
+expression. <code class="highlighter-rouge">CASE</code> statements can be nested to form more complex logical structures.</li>
+  <li>Avoid the use of <code class="highlighter-rouge">UNION</code> clauses and temporary tables where possible. If the
+schema can be optimised to remove the reliance on these features then it most
+likely should be.</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CASE</span> <span class="n">postcode</span>
+       <span class="k">WHEN</span> <span class="s1">'BN1'</span> <span class="k">THEN</span> <span class="s1">'Brighton'</span>
+       <span class="k">WHEN</span> <span class="s1">'EH1'</span> <span class="k">THEN</span> <span class="s1">'Edinburgh'</span>
+       <span class="k">END</span> <span class="k">AS</span> <span class="n">city</span>
+  <span class="k">FROM</span> <span class="n">office_locations</span>
+ <span class="k">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">'United Kingdom'</span>
+   <span class="k">AND</span> <span class="n">opening_time</span> <span class="k">BETWEEN</span> <span class="mi">8</span> <span class="k">AND</span> <span class="mi">9</span>
+   <span class="k">AND</span> <span class="n">postcode</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'EH1'</span><span class="p">,</span> <span class="s1">'BN1'</span><span class="p">,</span> <span class="s1">'NN1'</span><span class="p">,</span> <span class="s1">'KW1'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="create-syntax">Create syntax</h2>
+
+<p>When declaring schema information it is also important to maintain human
+readable code. To facilitate this ensure the column definitions are ordered and
+grouped where it makes sense to do so.</p>
+
+<p>Indent column definitions by four (4) spaces within the <code class="highlighter-rouge">CREATE</code> definition.</p>
+
+<h3 id="choosing-data-types">Choosing data types</h3>
+
+<ul>
+  <li>Where possible do not use vendor specific data types—these are not portable and
+may not be available in older versions of the same vendor’s software.</li>
+  <li>Only use <code class="highlighter-rouge">REAL</code> or <code class="highlighter-rouge">FLOAT</code> types where it is strictly necessary for floating
+point mathematics otherwise prefer <code class="highlighter-rouge">NUMERIC</code> and <code class="highlighter-rouge">DECIMAL</code> at all times. Floating
+point rounding errors are a nuisance!</li>
+</ul>
+
+<h3 id="specifying-default-values">Specifying default values</h3>
+
+<ul>
+  <li>The default value must be the same type as the column—if a column is declared
+a <code class="highlighter-rouge">DECIMAL</code> do not provide an <code class="highlighter-rouge">INTEGER</code> default value.</li>
+  <li>Default values must follow the data type declaration and come before any
+<code class="highlighter-rouge">NOT NULL</code> statement.</li>
+</ul>
+
+<h3 id="constraints-and-keys">Constraints and keys</h3>
+
+<p>Constraints and their subset, keys, are a very important component of any
+database definition. They can quickly become very difficult to read and reason
+about though so it is important that a standard set of guidelines are followed.</p>
+
+<h4 id="choosing-keys">Choosing keys</h4>
+
+<p>Deciding the column(s) that will form the keys in the definition should be a
+carefully considered activity as it will effect performance and data integrity.</p>
+
+<ol>
+  <li>The key should be unique to some degree.</li>
+  <li>Consistency in terms of data type for the value across the schema and a lower
+likelihood of this changing in the future.</li>
+  <li>Can the value be validated against a standard format (such as one published by
+ISO)? Encouraging conformity to point 2.</li>
+  <li>Keeping the key as simple as possible whilst not being scared to use compound
+keys where necessary.</li>
+</ol>
+
+<p>It is a reasoned and considered balancing act to be performed at the definition
+of a database. Should requirements evolve in the future it is possible to make
+changes to the definitions to keep them up to date.</p>
+
+<h4 id="defining-constraints">Defining constraints</h4>
+
+<p>Once the keys are decided it is possible to define them in the system using
+constraints along with field value validation.</p>
+
+<h5 id="general-2">General</h5>
+
+<ul>
+  <li>Tables must have at least one key to be complete and useful.</li>
+  <li>Constraints should be given a custom name excepting <code class="highlighter-rouge">UNIQUE</code>, <code class="highlighter-rouge">PRIMARY KEY</code>
+and <code class="highlighter-rouge">FOREIGN KEY</code> where the database vendor will generally supply sufficiently
+intelligible names automatically.</li>
+</ul>
+
+<h5 id="layout-and-order">Layout and order</h5>
+
+<ul>
+  <li>Specify the primary key first right after the <code class="highlighter-rouge">CREATE TABLE</code> statement.</li>
+  <li>Constraints should be defined directly beneath the column they correspond to.
+Indent the constraint so that it aligns to the right of the column name.</li>
+  <li>If it is a multi-column constraint then consider putting it as close to both
+column definitions as possible and where this is difficult as a last resort
+include them at the end of the <code class="highlighter-rouge">CREATE TABLE</code> definition.</li>
+  <li>If it is a table level constraint that applies to the entire table then it
+should also appear at the end.</li>
+  <li>Use alphabetical order where <code class="highlighter-rouge">ON DELETE</code> comes before <code class="highlighter-rouge">ON UPDATE</code>.</li>
+  <li>If it make senses to do so align each aspect of the query on the same character
+position. For example all <code class="highlighter-rouge">NOT NULL</code> definitions could start at the same
+character position. This is not hard and fast, but it certainly makes the code
+much easier to scan and read.</li>
+</ul>
+
+<h5 id="validation">Validation</h5>
+
+<ul>
+  <li>Use <code class="highlighter-rouge">LIKE</code> and <code class="highlighter-rouge">SIMILAR TO</code> constraints to ensure the integrity of strings
+where the format is known.</li>
+  <li>Where the ultimate range of a numerical value is known it must be written as a
+range <code class="highlighter-rouge">CHECK()</code> to prevent incorrect values entering the database or the silent
+truncation of data too large to fit the column definition. In the least it
+should check that the value is greater than zero in most cases.</li>
+  <li><code class="highlighter-rouge">CHECK()</code> constraints should be kept in separate clauses to ease debugging.</li>
+</ul>
+
+<h5 id="example">Example</h5>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">staff</span> <span class="p">(</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">staff_num</span><span class="p">),</span>
+    <span class="n">staff_num</span>      <span class="n">INT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>       <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">first_name</span>     <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">pens_in_drawer</span> <span class="n">INT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>       <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+                   <span class="k">CONSTRAINT</span> <span class="n">pens_in_drawer_range</span>
+                   <span class="k">CHECK</span><span class="p">(</span><span class="n">pens_in_drawer</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">AND</span> <span class="n">pens_in_drawer</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="designs-to-avoid">Designs to avoid</h3>
+
+<ul>
+  <li>Object oriented design principles do not effectively translate to relational
+database designs—avoid this pitfall.</li>
+  <li>Placing the value in one column and the units in another column. The column
+should make the units self evident to prevent the requirement to combine
+columns again later in the application. Use <code class="highlighter-rouge">CHECK()</code> to ensure valid data is
+inserted into the column.</li>
+  <li><a href="https://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model" title="Wikipedia: Entity–attribute–value model">EAV (Entity Attribute Value)</a> tables—use a specialist product intended for
+handling such schema-less data instead.</li>
+  <li>Splitting up data that should be in one table across many because of arbitrary
+concerns such as time-based archiving or location in a multi-national
+organisation. Later queries must then work across multiple tables with <code class="highlighter-rouge">UNION</code>
+rather than just simply querying one table.</li>
+</ul>
+
+<h2 id="appendix">Appendix</h2>
+
+<h3 id="reserved-keyword-reference">Reserved keyword reference</h3>
+
+<p>A list of ANSI SQL (92, 99 and 2003), MySQL 3 to 5.x, PostgreSQL 8.1, MS SQL Server 2000, MS ODBC and Oracle 10.2 reserved keywords.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span>
+<span class="k">ABORT</span>
+<span class="k">ABS</span>
+<span class="k">ABSOLUTE</span>
+<span class="k">ACCESS</span>
+<span class="n">ACTION</span>
+<span class="k">ADA</span>
+<span class="k">ADD</span>
+<span class="k">ADMIN</span>
+<span class="k">AFTER</span>
+<span class="k">AGGREGATE</span>
+<span class="k">ALIAS</span>
+<span class="k">ALL</span>
+<span class="k">ALLOCATE</span>
+<span class="n">ALSO</span>
+<span class="k">ALTER</span>
+<span class="n">ALWAYS</span>
+<span class="k">ANALYSE</span>
+<span class="k">ANALYZE</span>
+<span class="k">AND</span>
+<span class="k">ANY</span>
+<span class="k">ARE</span>
+<span class="n">ARRAY</span>
+<span class="k">AS</span>
+<span class="k">ASC</span>
+<span class="k">ASENSITIVE</span>
+<span class="k">ASSERTION</span>
+<span class="k">ASSIGNMENT</span>
+<span class="k">ASYMMETRIC</span>
+<span class="k">AT</span>
+<span class="k">ATOMIC</span>
+<span class="n">ATTRIBUTE</span>
+<span class="n">ATTRIBUTES</span>
+<span class="n">AUDIT</span>
+<span class="k">AUTHORIZATION</span>
+<span class="n">AUTO_INCREMENT</span>
+<span class="k">AVG</span>
+<span class="n">AVG_ROW_LENGTH</span>
+<span class="n">BACKUP</span>
+<span class="k">BACKWARD</span>
+<span class="k">BEFORE</span>
+<span class="k">BEGIN</span>
+<span class="n">BERNOULLI</span>
+<span class="k">BETWEEN</span>
+<span class="n">BIGINT</span>
+<span class="n">BINARY</span>
+<span class="n">BIT</span>
+<span class="k">BIT_LENGTH</span>
+<span class="k">BITVAR</span>
+<span class="n">BLOB</span>
+<span class="n">BOOL</span>
+<span class="n">BOOLEAN</span>
+<span class="k">BOTH</span>
+<span class="k">BREADTH</span>
+<span class="n">BREAK</span>
+<span class="n">BROWSE</span>
+<span class="n">BULK</span>
+<span class="k">BY</span>
+<span class="k">C</span>
+<span class="k">CACHE</span>
+<span class="k">CALL</span>
+<span class="k">CALLED</span>
+<span class="k">CARDINALITY</span>
+<span class="k">CASCADE</span>
+<span class="k">CASCADED</span>
+<span class="k">CASE</span>
+<span class="k">CAST</span>
+<span class="k">CATALOG</span>
+<span class="k">CATALOG_NAME</span>
+<span class="n">CEIL</span>
+<span class="n">CEILING</span>
+<span class="k">CHAIN</span>
+<span class="n">CHANGE</span>
+<span class="n">CHAR</span>
+<span class="k">CHAR_LENGTH</span>
+<span class="n">CHARACTER</span>
+<span class="k">CHARACTER_LENGTH</span>
+<span class="k">CHARACTER_SET_CATALOG</span>
+<span class="k">CHARACTER_SET_NAME</span>
+<span class="k">CHARACTER_SET_SCHEMA</span>
+<span class="k">CHARACTERISTICS</span>
+<span class="n">CHARACTERS</span>
+<span class="k">CHECK</span>
+<span class="k">CHECKED</span>
+<span class="k">CHECKPOINT</span>
+<span class="n">CHECKSUM</span>
+<span class="k">CLASS</span>
+<span class="k">CLASS_ORIGIN</span>
+<span class="k">CLOB</span>
+<span class="k">CLOSE</span>
+<span class="k">CLUSTER</span>
+<span class="n">CLUSTERED</span>
+<span class="n">COALESCE</span>
+<span class="k">COBOL</span>
+<span class="k">COLLATE</span>
+<span class="k">COLLATION</span>
+<span class="k">COLLATION_CATALOG</span>
+<span class="k">COLLATION_NAME</span>
+<span class="k">COLLATION_SCHEMA</span>
+<span class="n">COLLECT</span>
+<span class="k">COLUMN</span>
+<span class="k">COLUMN_NAME</span>
+<span class="n">COLUMNS</span>
+<span class="k">COMMAND_FUNCTION</span>
+<span class="k">COMMAND_FUNCTION_CODE</span>
+<span class="k">COMMENT</span>
+<span class="k">COMMIT</span>
+<span class="k">COMMITTED</span>
+<span class="k">COMPLETION</span>
+<span class="n">COMPRESS</span>
+<span class="n">COMPUTE</span>
+<span class="n">CONDITION</span>
+<span class="k">CONDITION_NUMBER</span>
+<span class="k">CONNECT</span>
+<span class="k">CONNECTION</span>
+<span class="k">CONNECTION_NAME</span>
+<span class="k">CONSTRAINT</span>
+<span class="k">CONSTRAINT_CATALOG</span>
+<span class="k">CONSTRAINT_NAME</span>
+<span class="k">CONSTRAINT_SCHEMA</span>
+<span class="k">CONSTRAINTS</span>
+<span class="k">CONSTRUCTOR</span>
+<span class="k">CONTAINS</span>
+<span class="n">CONTAINSTABLE</span>
+<span class="k">CONTINUE</span>
+<span class="k">CONVERSION</span>
+<span class="k">CONVERT</span>
+<span class="k">COPY</span>
+<span class="n">CORR</span>
+<span class="n">CORRESPONDING</span>
+<span class="k">COUNT</span>
+<span class="n">COVAR_POP</span>
+<span class="n">COVAR_SAMP</span>
+<span class="k">CREATE</span>
+<span class="k">CREATEDB</span>
+<span class="n">CREATEROLE</span>
+<span class="k">CREATEUSER</span>
+<span class="k">CROSS</span>
+<span class="n">CSV</span>
+<span class="k">CUBE</span>
+<span class="n">CUME_DIST</span>
+<span class="k">CURRENT</span>
+<span class="k">CURRENT_DATE</span>
+<span class="n">CURRENT_DEFAULT_TRANSFORM_GROUP</span>
+<span class="k">CURRENT_PATH</span>
+<span class="k">CURRENT_ROLE</span>
+<span class="k">CURRENT_TIME</span>
+<span class="k">CURRENT_TIMESTAMP</span>
+<span class="n">CURRENT_TRANSFORM_GROUP_FOR_TYPE</span>
+<span class="k">CURRENT_USER</span>
+<span class="k">CURSOR</span>
+<span class="k">CURSOR_NAME</span>
+<span class="k">CYCLE</span>
+<span class="k">DATA</span>
+<span class="k">DATABASE</span>
+<span class="n">DATABASES</span>
+<span class="n">DATE</span>
+<span class="n">DATETIME</span>
+<span class="k">DATETIME_INTERVAL_CODE</span>
+<span class="k">DATETIME_INTERVAL_PRECISION</span>
+<span class="k">DAY</span>
+<span class="n">DAY_HOUR</span>
+<span class="n">DAY_MICROSECOND</span>
+<span class="n">DAY_MINUTE</span>
+<span class="n">DAY_SECOND</span>
+<span class="n">DAYOFMONTH</span>
+<span class="n">DAYOFWEEK</span>
+<span class="n">DAYOFYEAR</span>
+<span class="n">DBCC</span>
+<span class="k">DEALLOCATE</span>
+<span class="n">DEC</span>
+<span class="n">DECIMAL</span>
+<span class="k">DECLARE</span>
+<span class="k">DEFAULT</span>
+<span class="k">DEFAULTS</span>
+<span class="k">DEFERRABLE</span>
+<span class="k">DEFERRED</span>
+<span class="k">DEFINED</span>
+<span class="k">DEFINER</span>
+<span class="n">DEGREE</span>
+<span class="n">DELAY_KEY_WRITE</span>
+<span class="n">DELAYED</span>
+<span class="k">DELETE</span>
+<span class="k">DELIMITER</span>
+<span class="k">DELIMITERS</span>
+<span class="n">DENSE_RANK</span>
+<span class="n">DENY</span>
+<span class="n">DEPTH</span>
+<span class="k">DEREF</span>
+<span class="n">DERIVED</span>
+<span class="k">DESC</span>
+<span class="k">DESCRIBE</span>
+<span class="k">DESCRIPTOR</span>
+<span class="k">DESTROY</span>
+<span class="k">DESTRUCTOR</span>
+<span class="k">DETERMINISTIC</span>
+<span class="k">DIAGNOSTICS</span>
+<span class="k">DICTIONARY</span>
+<span class="n">DISABLE</span>
+<span class="k">DISCONNECT</span>
+<span class="n">DISK</span>
+<span class="k">DISPATCH</span>
+<span class="k">DISTINCT</span>
+<span class="n">DISTINCTROW</span>
+<span class="n">DISTRIBUTED</span>
+<span class="n">DIV</span>
+<span class="k">DO</span>
+<span class="k">DOMAIN</span>
+<span class="n">DOUBLE</span>
+<span class="k">DROP</span>
+<span class="n">DUAL</span>
+<span class="n">DUMMY</span>
+<span class="n">DUMP</span>
+<span class="k">DYNAMIC</span>
+<span class="k">DYNAMIC_FUNCTION</span>
+<span class="k">DYNAMIC_FUNCTION_CODE</span>
+<span class="k">EACH</span>
+<span class="n">ELEMENT</span>
+<span class="k">ELSE</span>
+<span class="n">ELSEIF</span>
+<span class="n">ENABLE</span>
+<span class="n">ENCLOSED</span>
+<span class="k">ENCODING</span>
+<span class="k">ENCRYPTED</span>
+<span class="k">END</span>
+<span class="k">END</span><span class="o">-</span><span class="k">EXEC</span>
+<span class="n">ENUM</span>
+<span class="k">EQUALS</span>
+<span class="n">ERRLVL</span>
+<span class="k">ESCAPE</span>
+<span class="n">ESCAPED</span>
+<span class="k">EVERY</span>
+<span class="k">EXCEPT</span>
+<span class="n">EXCEPTION</span>
+<span class="n">EXCLUDE</span>
+<span class="k">EXCLUDING</span>
+<span class="k">EXCLUSIVE</span>
+<span class="k">EXEC</span>
+<span class="k">EXECUTE</span>
+<span class="k">EXISTING</span>
+<span class="k">EXISTS</span>
+<span class="n">EXIT</span>
+<span class="n">EXP</span>
+<span class="k">EXPLAIN</span>
+<span class="k">EXTERNAL</span>
+<span class="k">EXTRACT</span>
+<span class="k">FALSE</span>
+<span class="k">FETCH</span>
+<span class="n">FIELDS</span>
+<span class="n">FILE</span>
+<span class="n">FILLFACTOR</span>
+<span class="n">FILTER</span>
+<span class="k">FINAL</span>
+<span class="k">FIRST</span>
+<span class="n">FLOAT</span>
+<span class="n">FLOAT4</span>
+<span class="n">FLOAT8</span>
+<span class="n">FLOOR</span>
+<span class="n">FLUSH</span>
+<span class="n">FOLLOWING</span>
+<span class="k">FOR</span>
+<span class="k">FORCE</span>
+<span class="k">FOREIGN</span>
+<span class="k">FORTRAN</span>
+<span class="k">FORWARD</span>
+<span class="k">FOUND</span>
+<span class="k">FREE</span>
+<span class="n">FREETEXT</span>
+<span class="n">FREETEXTTABLE</span>
+<span class="k">FREEZE</span>
+<span class="k">FROM</span>
+<span class="k">FULL</span>
+<span class="n">FULLTEXT</span>
+<span class="k">FUNCTION</span>
+<span class="n">FUSION</span>
+<span class="k">G</span>
+<span class="k">GENERAL</span>
+<span class="k">GENERATED</span>
+<span class="k">GET</span>
+<span class="k">GLOBAL</span>
+<span class="k">GO</span>
+<span class="k">GOTO</span>
+<span class="k">GRANT</span>
+<span class="k">GRANTED</span>
+<span class="n">GRANTS</span>
+<span class="n">GREATEST</span>
+<span class="k">GROUP</span>
+<span class="k">GROUPING</span>
+<span class="k">HANDLER</span>
+<span class="k">HAVING</span>
+<span class="n">HEADER</span>
+<span class="n">HEAP</span>
+<span class="k">HIERARCHY</span>
+<span class="n">HIGH_PRIORITY</span>
+<span class="k">HOLD</span>
+<span class="n">HOLDLOCK</span>
+<span class="k">HOST</span>
+<span class="n">HOSTS</span>
+<span class="n">HOUR</span>
+<span class="n">HOUR_MICROSECOND</span>
+<span class="n">HOUR_MINUTE</span>
+<span class="n">HOUR_SECOND</span>
+<span class="n">IDENTIFIED</span>
+<span class="k">IDENTITY</span>
+<span class="n">IDENTITY_INSERT</span>
+<span class="n">IDENTITYCOL</span>
+<span class="n">IF</span>
+<span class="k">IGNORE</span>
+<span class="k">ILIKE</span>
+<span class="k">IMMEDIATE</span>
+<span class="k">IMMUTABLE</span>
+<span class="k">IMPLEMENTATION</span>
+<span class="k">IMPLICIT</span>
+<span class="k">IN</span>
+<span class="n">INCLUDE</span>
+<span class="k">INCLUDING</span>
+<span class="k">INCREMENT</span>
+<span class="k">INDEX</span>
+<span class="n">INDICATOR</span>
+<span class="n">INFILE</span>
+<span class="k">INFIX</span>
+<span class="n">INHERIT</span>
+<span class="k">INHERITS</span>
+<span class="n">INITIAL</span>
+<span class="k">INITIALIZE</span>
+<span class="k">INITIALLY</span>
+<span class="k">INNER</span>
+<span class="k">INOUT</span>
+<span class="k">INPUT</span>
+<span class="k">INSENSITIVE</span>
+<span class="k">INSERT</span>
+<span class="n">INSERT_ID</span>
+<span class="n">INSTANCE</span>
+<span class="k">INSTANTIABLE</span>
+<span class="k">INSTEAD</span>
+<span class="n">INT</span>
+<span class="n">INT1</span>
+<span class="n">INT2</span>
+<span class="n">INT3</span>
+<span class="n">INT4</span>
+<span class="n">INT8</span>
+<span class="n">INTEGER</span>
+<span class="k">INTERSECT</span>
+<span class="n">INTERSECTION</span>
+<span class="n">INTERVAL</span>
+<span class="k">INTO</span>
+<span class="k">INVOKER</span>
+<span class="k">IS</span>
+<span class="n">ISAM</span>
+<span class="k">ISNULL</span>
+<span class="k">ISOLATION</span>
+<span class="k">ITERATE</span>
+<span class="k">JOIN</span>
+<span class="n">K</span>
+<span class="k">KEY</span>
+<span class="k">KEY_MEMBER</span>
+<span class="k">KEY_TYPE</span>
+<span class="n">KEYS</span>
+<span class="n">KILL</span>
+<span class="k">LANCOMPILER</span>
+<span class="k">LANGUAGE</span>
+<span class="k">LARGE</span>
+<span class="k">LAST</span>
+<span class="n">LAST_INSERT_ID</span>
+<span class="k">LATERAL</span>
+<span class="k">LEADING</span>
+<span class="n">LEAST</span>
+<span class="n">LEAVE</span>
+<span class="k">LEFT</span>
+<span class="k">LENGTH</span>
+<span class="k">LESS</span>
+<span class="k">LEVEL</span>
+<span class="k">LIKE</span>
+<span class="k">LIMIT</span>
+<span class="n">LINENO</span>
+<span class="n">LINES</span>
+<span class="k">LISTEN</span>
+<span class="n">LN</span>
+<span class="k">LOAD</span>
+<span class="k">LOCAL</span>
+<span class="k">LOCALTIME</span>
+<span class="k">LOCALTIMESTAMP</span>
+<span class="k">LOCATION</span>
+<span class="k">LOCATOR</span>
+<span class="k">LOCK</span>
+<span class="n">LOGIN</span>
+<span class="n">LOGS</span>
+<span class="n">LONG</span>
+<span class="n">LONGBLOB</span>
+<span class="n">LONGTEXT</span>
+<span class="n">LOOP</span>
+<span class="n">LOW_PRIORITY</span>
+<span class="k">LOWER</span>
+<span class="n">M</span>
+<span class="k">MAP</span>
+<span class="k">MATCH</span>
+<span class="n">MATCHED</span>
+<span class="k">MAX</span>
+<span class="n">MAX_ROWS</span>
+<span class="n">MAXEXTENTS</span>
+<span class="k">MAXVALUE</span>
+<span class="n">MEDIUMBLOB</span>
+<span class="n">MEDIUMINT</span>
+<span class="n">MEDIUMTEXT</span>
+<span class="n">MEMBER</span>
+<span class="n">MERGE</span>
+<span class="k">MESSAGE_LENGTH</span>
+<span class="k">MESSAGE_OCTET_LENGTH</span>
+<span class="k">MESSAGE_TEXT</span>
+<span class="k">METHOD</span>
+<span class="n">MIDDLEINT</span>
+<span class="k">MIN</span>
+<span class="n">MIN_ROWS</span>
+<span class="n">MINUS</span>
+<span class="k">MINUTE</span>
+<span class="n">MINUTE_MICROSECOND</span>
+<span class="n">MINUTE_SECOND</span>
+<span class="k">MINVALUE</span>
+<span class="n">MLSLABEL</span>
+<span class="k">MOD</span>
+<span class="k">MODE</span>
+<span class="k">MODIFIES</span>
+<span class="k">MODIFY</span>
+<span class="n">MODULE</span>
+<span class="k">MONTH</span>
+<span class="n">MONTHNAME</span>
+<span class="k">MORE</span>
+<span class="k">MOVE</span>
+<span class="n">MULTISET</span>
+<span class="k">MUMPS</span>
+<span class="n">MYISAM</span>
+<span class="n">NAME</span>
+<span class="k">NAMES</span>
+<span class="k">NATIONAL</span>
+<span class="k">NATURAL</span>
+<span class="k">NCHAR</span>
+<span class="k">NCLOB</span>
+<span class="n">NESTING</span>
+<span class="k">NEW</span>
+<span class="k">NEXT</span>
+<span class="k">NO</span>
+<span class="n">NO_WRITE_TO_BINLOG</span>
+<span class="n">NOAUDIT</span>
+<span class="n">NOCHECK</span>
+<span class="n">NOCOMPRESS</span>
+<span class="k">NOCREATEDB</span>
+<span class="n">NOCREATEROLE</span>
+<span class="k">NOCREATEUSER</span>
+<span class="n">NOINHERIT</span>
+<span class="n">NOLOGIN</span>
+<span class="n">NONCLUSTERED</span>
+<span class="k">NONE</span>
+<span class="n">NORMALIZE</span>
+<span class="n">NORMALIZED</span>
+<span class="n">NOSUPERUSER</span>
+<span class="k">NOT</span>
+<span class="k">NOTHING</span>
+<span class="k">NOTIFY</span>
+<span class="k">NOTNULL</span>
+<span class="n">NOWAIT</span>
+<span class="k">NULL</span>
+<span class="k">NULLABLE</span>
+<span class="k">NULLIF</span>
+<span class="n">NULLS</span>
+<span class="n">NUMBER</span>
+<span class="n">NUMERIC</span>
+<span class="k">OBJECT</span>
+<span class="k">OCTET_LENGTH</span>
+<span class="n">OCTETS</span>
+<span class="k">OF</span>
+<span class="k">OFF</span>
+<span class="n">OFFLINE</span>
+<span class="k">OFFSET</span>
+<span class="n">OFFSETS</span>
+<span class="k">OIDS</span>
+<span class="k">OLD</span>
+<span class="k">ON</span>
+<span class="n">ONLINE</span>
+<span class="k">ONLY</span>
+<span class="k">OPEN</span>
+<span class="n">OPENDATASOURCE</span>
+<span class="n">OPENQUERY</span>
+<span class="n">OPENROWSET</span>
+<span class="n">OPENXML</span>
+<span class="k">OPERATION</span>
+<span class="k">OPERATOR</span>
+<span class="n">OPTIMIZE</span>
+<span class="k">OPTION</span>
+<span class="n">OPTIONALLY</span>
+<span class="k">OPTIONS</span>
+<span class="k">OR</span>
+<span class="k">ORDER</span>
+<span class="n">ORDERING</span>
+<span class="k">ORDINALITY</span>
+<span class="n">OTHERS</span>
+<span class="k">OUT</span>
+<span class="k">OUTER</span>
+<span class="n">OUTFILE</span>
+<span class="k">OUTPUT</span>
+<span class="n">OVER</span>
+<span class="k">OVERLAPS</span>
+<span class="k">OVERLAY</span>
+<span class="k">OVERRIDING</span>
+<span class="k">OWNER</span>
+<span class="n">PACK_KEYS</span>
+<span class="k">PAD</span>
+<span class="k">PARAMETER</span>
+<span class="k">PARAMETER_MODE</span>
+<span class="n">PARAMETER_NAME</span>
+<span class="n">PARAMETER_ORDINAL_POSITION</span>
+<span class="k">PARAMETER_SPECIFIC_CATALOG</span>
+<span class="k">PARAMETER_SPECIFIC_NAME</span>
+<span class="n">PARAMETER_SPECIFIC_SCHEMA</span>
+<span class="k">PARAMETERS</span>
+<span class="k">PARTIAL</span>
+<span class="n">PARTITION</span>
+<span class="k">PASCAL</span>
+<span class="n">PASSWORD</span>
+<span class="n">PATH</span>
+<span class="n">PCTFREE</span>
+<span class="n">PERCENT</span>
+<span class="n">PERCENT_RANK</span>
+<span class="n">PERCENTILE_CONT</span>
+<span class="n">PERCENTILE_DISC</span>
+<span class="k">PLACING</span>
+<span class="n">PLAN</span>
+<span class="k">PLI</span>
+<span class="k">POSITION</span>
+<span class="k">POSTFIX</span>
+<span class="n">POWER</span>
+<span class="n">PRECEDING</span>
+<span class="k">PRECISION</span>
+<span class="k">PREFIX</span>
+<span class="k">PREORDER</span>
+<span class="k">PREPARE</span>
+<span class="n">PREPARED</span>
+<span class="k">PRESERVE</span>
+<span class="k">PRIMARY</span>
+<span class="n">PRINT</span>
+<span class="k">PRIOR</span>
+<span class="k">PRIVILEGES</span>
+<span class="n">PROC</span>
+<span class="k">PROCEDURAL</span>
+<span class="k">PROCEDURE</span>
+<span class="n">PROCESS</span>
+<span class="n">PROCESSLIST</span>
+<span class="k">PUBLIC</span>
+<span class="n">PURGE</span>
+<span class="n">QUOTE</span>
+<span class="n">RAID0</span>
+<span class="n">RAISERROR</span>
+<span class="n">RANGE</span>
+<span class="n">RANK</span>
+<span class="n">RAW</span>
+<span class="k">READ</span>
+<span class="k">READS</span>
+<span class="n">READTEXT</span>
+<span class="n">REAL</span>
+<span class="k">RECHECK</span>
+<span class="n">RECONFIGURE</span>
+<span class="k">RECURSIVE</span>
+<span class="k">REF</span>
+<span class="k">REFERENCES</span>
+<span class="k">REFERENCING</span>
+<span class="n">REGEXP</span>
+<span class="n">REGR_AVGX</span>
+<span class="n">REGR_AVGY</span>
+<span class="n">REGR_COUNT</span>
+<span class="n">REGR_INTERCEPT</span>
+<span class="n">REGR_R2</span>
+<span class="n">REGR_SLOPE</span>
+<span class="n">REGR_SXX</span>
+<span class="n">REGR_SXY</span>
+<span class="n">REGR_SYY</span>
+<span class="k">REINDEX</span>
+<span class="k">RELATIVE</span>
+<span class="n">RELEASE</span>
+<span class="n">RELOAD</span>
+<span class="k">RENAME</span>
+<span class="n">REPEAT</span>
+<span class="k">REPEATABLE</span>
+<span class="k">REPLACE</span>
+<span class="n">REPLICATION</span>
+<span class="n">REQUIRE</span>
+<span class="k">RESET</span>
+<span class="n">RESIGNAL</span>
+<span class="n">RESOURCE</span>
+<span class="k">RESTART</span>
+<span class="n">RESTORE</span>
+<span class="k">RESTRICT</span>
+<span class="k">RESULT</span>
+<span class="k">RETURN</span>
+<span class="n">RETURNED_CARDINALITY</span>
+<span class="k">RETURNED_LENGTH</span>
+<span class="k">RETURNED_OCTET_LENGTH</span>
+<span class="k">RETURNED_SQLSTATE</span>
+<span class="k">RETURNS</span>
+<span class="k">REVOKE</span>
+<span class="k">RIGHT</span>
+<span class="n">RLIKE</span>
+<span class="k">ROLE</span>
+<span class="k">ROLLBACK</span>
+<span class="k">ROLLUP</span>
+<span class="k">ROUTINE</span>
+<span class="k">ROUTINE_CATALOG</span>
+<span class="k">ROUTINE_NAME</span>
+<span class="k">ROUTINE_SCHEMA</span>
+<span class="k">ROW</span>
+<span class="k">ROW_COUNT</span>
+<span class="n">ROW_NUMBER</span>
+<span class="n">ROWCOUNT</span>
+<span class="n">ROWGUIDCOL</span>
+<span class="n">ROWID</span>
+<span class="n">ROWNUM</span>
+<span class="k">ROWS</span>
+<span class="k">RULE</span>
+<span class="n">SAVE</span>
+<span class="n">SAVEPOINT</span>
+<span class="k">SCALE</span>
+<span class="k">SCHEMA</span>
+<span class="k">SCHEMA_NAME</span>
+<span class="n">SCHEMAS</span>
+<span class="k">SCOPE</span>
+<span class="n">SCOPE_CATALOG</span>
+<span class="n">SCOPE_NAME</span>
+<span class="n">SCOPE_SCHEMA</span>
+<span class="k">SCROLL</span>
+<span class="k">SEARCH</span>
+<span class="k">SECOND</span>
+<span class="n">SECOND_MICROSECOND</span>
+<span class="n">SECTION</span>
+<span class="k">SECURITY</span>
+<span class="k">SELECT</span>
+<span class="k">SELF</span>
+<span class="k">SENSITIVE</span>
+<span class="n">SEPARATOR</span>
+<span class="n">SEQUENCE</span>
+<span class="k">SERIALIZABLE</span>
+<span class="k">SERVER_NAME</span>
+<span class="k">SESSION</span>
+<span class="k">SESSION_USER</span>
+<span class="k">SET</span>
+<span class="k">SETOF</span>
+<span class="k">SETS</span>
+<span class="n">SETUSER</span>
+<span class="k">SHARE</span>
+<span class="k">SHOW</span>
+<span class="n">SHUTDOWN</span>
+<span class="n">SIGNAL</span>
+<span class="k">SIMILAR</span>
+<span class="k">SIMPLE</span>
+<span class="k">SIZE</span>
+<span class="n">SMALLINT</span>
+<span class="k">SOME</span>
+<span class="n">SONAME</span>
+<span class="k">SOURCE</span>
+<span class="k">SPACE</span>
+<span class="n">SPATIAL</span>
+<span class="k">SPECIFIC</span>
+<span class="k">SPECIFIC_NAME</span>
+<span class="k">SPECIFICTYPE</span>
+<span class="k">SQL</span>
+<span class="n">SQL_BIG_RESULT</span>
+<span class="n">SQL_BIG_SELECTS</span>
+<span class="n">SQL_BIG_TABLES</span>
+<span class="n">SQL_CALC_FOUND_ROWS</span>
+<span class="n">SQL_LOG_OFF</span>
+<span class="n">SQL_LOG_UPDATE</span>
+<span class="n">SQL_LOW_PRIORITY_UPDATES</span>
+<span class="n">SQL_SELECT_LIMIT</span>
+<span class="n">SQL_SMALL_RESULT</span>
+<span class="n">SQL_WARNINGS</span>
+<span class="n">SQLCA</span>
+<span class="k">SQLCODE</span>
+<span class="k">SQLERROR</span>
+<span class="k">SQLEXCEPTION</span>
+<span class="k">SQLSTATE</span>
+<span class="n">SQLWARNING</span>
+<span class="n">SQRT</span>
+<span class="n">SSL</span>
+<span class="k">STABLE</span>
+<span class="k">START</span>
+<span class="n">STARTING</span>
+<span class="k">STATE</span>
+<span class="k">STATEMENT</span>
+<span class="k">STATIC</span>
+<span class="k">STATISTICS</span>
+<span class="n">STATUS</span>
+<span class="n">STDDEV_POP</span>
+<span class="n">STDDEV_SAMP</span>
+<span class="k">STDIN</span>
+<span class="k">STDOUT</span>
+<span class="k">STORAGE</span>
+<span class="n">STRAIGHT_JOIN</span>
+<span class="k">STRICT</span>
+<span class="n">STRING</span>
+<span class="k">STRUCTURE</span>
+<span class="n">STYLE</span>
+<span class="k">SUBCLASS_ORIGIN</span>
+<span class="k">SUBLIST</span>
+<span class="n">SUBMULTISET</span>
+<span class="k">SUBSTRING</span>
+<span class="n">SUCCESSFUL</span>
+<span class="k">SUM</span>
+<span class="n">SUPERUSER</span>
+<span class="k">SYMMETRIC</span>
+<span class="n">SYNONYM</span>
+<span class="n">SYSDATE</span>
+<span class="k">SYSID</span>
+<span class="k">SYSTEM</span>
+<span class="k">SYSTEM_USER</span>
+<span class="k">TABLE</span>
+<span class="k">TABLE_NAME</span>
+<span class="n">TABLES</span>
+<span class="n">TABLESAMPLE</span>
+<span class="n">TABLESPACE</span>
+<span class="k">TEMP</span>
+<span class="k">TEMPLATE</span>
+<span class="k">TEMPORARY</span>
+<span class="k">TERMINATE</span>
+<span class="n">TERMINATED</span>
+<span class="n">TEXT</span>
+<span class="n">TEXTSIZE</span>
+<span class="k">THAN</span>
+<span class="k">THEN</span>
+<span class="n">TIES</span>
+<span class="n">TIME</span>
+<span class="k">TIMESTAMP</span>
+<span class="k">TIMEZONE_HOUR</span>
+<span class="k">TIMEZONE_MINUTE</span>
+<span class="n">TINYBLOB</span>
+<span class="n">TINYINT</span>
+<span class="n">TINYTEXT</span>
+<span class="k">TO</span>
+<span class="k">TOAST</span>
+<span class="n">TOP</span>
+<span class="n">TOP_LEVEL_COUNT</span>
+<span class="k">TRAILING</span>
+<span class="n">TRAN</span>
+<span class="n">TRANSACTION</span>
+<span class="n">TRANSACTION_ACTIVE</span>
+<span class="k">TRANSACTIONS_COMMITTED</span>
+<span class="k">TRANSACTIONS_ROLLED_BACK</span>
+<span class="k">TRANSFORM</span>
+<span class="k">TRANSFORMS</span>
+<span class="k">TRANSLATE</span>
+<span class="k">TRANSLATION</span>
+<span class="k">TREAT</span>
+<span class="k">TRIGGER</span>
+<span class="k">TRIGGER_CATALOG</span>
+<span class="k">TRIGGER_NAME</span>
+<span class="k">TRIGGER_SCHEMA</span>
+<span class="k">TRIM</span>
+<span class="k">TRUE</span>
+<span class="k">TRUNCATE</span>
+<span class="k">TRUSTED</span>
+<span class="n">TSEQUAL</span>
+<span class="k">TYPE</span>
+<span class="n">UESCAPE</span>
+<span class="n">UID</span>
+<span class="n">UNBOUNDED</span>
+<span class="k">UNCOMMITTED</span>
+<span class="k">UNDER</span>
+<span class="n">UNDO</span>
+<span class="k">UNENCRYPTED</span>
+<span class="k">UNION</span>
+<span class="k">UNIQUE</span>
+<span class="k">UNKNOWN</span>
+<span class="k">UNLISTEN</span>
+<span class="n">UNLOCK</span>
+<span class="k">UNNAMED</span>
+<span class="k">UNNEST</span>
+<span class="n">UNSIGNED</span>
+<span class="k">UNTIL</span>
+<span class="k">UPDATE</span>
+<span class="n">UPDATETEXT</span>
+<span class="k">UPPER</span>
+<span class="k">USAGE</span>
+<span class="n">USE</span>
+<span class="k">USER</span>
+<span class="k">USER_DEFINED_TYPE_CATALOG</span>
+<span class="n">USER_DEFINED_TYPE_CODE</span>
+<span class="k">USER_DEFINED_TYPE_NAME</span>
+<span class="k">USER_DEFINED_TYPE_SCHEMA</span>
+<span class="k">USING</span>
+<span class="n">UTC_DATE</span>
+<span class="n">UTC_TIME</span>
+<span class="n">UTC_TIMESTAMP</span>
+<span class="k">VACUUM</span>
+<span class="k">VALID</span>
+<span class="n">VALIDATE</span>
+<span class="k">VALIDATOR</span>
+<span class="n">VALUE</span>
+<span class="k">VALUES</span>
+<span class="n">VAR_POP</span>
+<span class="n">VAR_SAMP</span>
+<span class="n">VARBINARY</span>
+<span class="n">VARCHAR</span>
+<span class="n">VARCHAR2</span>
+<span class="n">VARCHARACTER</span>
+<span class="k">VARIABLE</span>
+<span class="n">VARIABLES</span>
+<span class="n">VARYING</span>
+<span class="k">VERBOSE</span>
+<span class="k">VIEW</span>
+<span class="k">VOLATILE</span>
+<span class="n">WAITFOR</span>
+<span class="k">WHEN</span>
+<span class="k">WHENEVER</span>
+<span class="k">WHERE</span>
+<span class="n">WHILE</span>
+<span class="n">WIDTH_BUCKET</span>
+<span class="n">WINDOW</span>
+<span class="k">WITH</span>
+<span class="n">WITHIN</span>
+<span class="k">WITHOUT</span>
+<span class="k">WORK</span>
+<span class="k">WRITE</span>
+<span class="n">WRITETEXT</span>
+<span class="n">X509</span>
+<span class="n">XOR</span>
+<span class="k">YEAR</span>
+<span class="n">YEAR_MONTH</span>
+<span class="n">ZEROFILL</span>
+<span class="k">ZONE</span>
+</code></pre></div></div>
+
+
+        </main>
+        <footer class="foot wrap">
+    <hr/>
+    <nav class="translation-nav">
+        <span>Translations:</span>
+        <a href="https://www.sqlstyle.guide/de/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="de"
+        title="Deutsch (German)"
+        lang="de">Deutsch</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="en"
+        title="English"
+        lang="en">English</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/ja/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="ja"
+        title="日本語 (Japanese)"
+        lang="ja">日本語</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/pt-br/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="pt-BR"
+        title="Português (BR) (Portuguese - Brazil)"
+        lang="pt-BR">Português (BR)</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/ru/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="ru"
+        title="Русский (Russian)"
+        lang="ru">Русский</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/zh/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="zh"
+        title="简体中文 (Simplified Chinese)"
+        lang="zh">简体中文</span>
+</a> · 
+<a href="https://www.sqlstyle.guide/zh-tw/" itemprop="availableLanguage"
+   itemscope itemtype="http://schema.org/Language">
+    <span itemprop="name" alternateName="zh-TW"
+        title="正體中文 (Traditional Chinese)"
+        lang="zh-TW">正體中文</span>
+</a>
+
+    </nav>
+    <p>
+        This guide is being discussed on Hacker News [
+            <a href="https://news.ycombinator.com/item?id=9941150">1</a>,
+            <a href="https://news.ycombinator.com/item?id=12671667">2</a>
+        ],
+        Reddit [
+            <a href="https://www.reddit.com/r/SQL/comments/3efmn0/sql_style_guide_a_consistent_code_guide_ensuring/">1</a>,
+            <a href="https://www.reddit.com/r/programming/comments/3eri42/sql_style_guide_by_simon_holywell/">2</a>,
+            <a href="https://www.reddit.com/r/PHP/comments/3efmp7/sql_style_guide_a_consistent_code_guide_ensuring/">3</a>
+        ],
+        <a href="https://lobste.rs/s/q9elee/sql_style_guide_by_simon_holywell">Lobste.rs</a>,
+        <a href="http://b.hatena.ne.jp/entry/s/www.sqlstyle.guide/ja/">Hatena</a> and
+        of course <a href="https://twitter.com/search?f=tweets&amp;q=&quot;sqlstyle.guide&quot;">Twitter</a>
+        if you want to have your say.
+    </p>
+    <p>
+        I have attempted to answer most of the frequently asked questions and held misconceptions in a blog post
+        entitled <a href="https://www.simonholywell.com/post/2016/12/sql-style-guide-misconceptions/?utm_source=sqlstyle.guide-sqlstyle.guide&amp;utm_medium=link&amp;utm_campaign=footer-link">
+        "SQL style guide misconceptions"</a> please have a read.
+    </p>
+    <p>Please do <a href="https://github.com/treffynnon/sqlstyle.guide/issues">open issues</a> or
+        <a href="https://github.com/treffynnon/sqlstyle.guide/pulls/">pull requests</a> for any errors you
+        may find in the guide and help me to improve it.</p>
+    <p>
+        <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">
+            SQL style guide
+        </span> by
+        <a xmlns:cc="http://creativecommons.org/ns#"
+           href="https://www.simonholywell.com/?utm_source=sqlstyle.guide-sqlstyle.guide&amp;utm_medium=link&amp;utm_campaign=footer-licence"
+           property="cc:attributionName"
+           rel="cc:attributionURL">
+            Simon Holywell
+        </a> is licensed under a
+        <a rel="license"
+           href="http://creativecommons.org/licenses/by-sa/4.0/">
+            Creative CommonsAttribution-ShareAlike 4.0 International License</a>.
+            <br />Based on a work at
+        <a xmlns:dct="http://purl.org/dc/terms/"
+           href="https://www.sqlstyle.guide"
+           rel="dct:source">www.sqlstyle.guide</a>.
+    </p>
+    <div class="buttons">
+        <ul class="quick-links">
+            <li>
+                <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=treffynnon&amp;repo=sqlstyle.guide&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+            </li>
+            <li>
+                <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=treffynnon&amp;repo=sqlstyle.guide&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+            </li>
+        </ul>
+        <ul class="quick-links">
+            <li class="follow-btn">
+                <a href="https://twitter.com/treffynnon" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @treffynnon</a>
+            </li>
+            <li class="tweet-btn">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.sqlstyle.guide" data-text="SQL style guide by @treffynnon: A consistent code style guide for SQL to ensure legible and maintainable projects" data-dnt="true">Tweet</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        <script src="https://www.sqlstyle.guide/static/scripts.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-65071829-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

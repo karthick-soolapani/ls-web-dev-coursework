@@ -1,0 +1,146 @@
+/* Box Sizing default to Border Box */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Overall styling*/
+
+body {
+  font-family: Calibri, Helvetica, Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+form {
+  font-size: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 400px;
+}
+
+/* Form elements layout */
+
+dl {
+  margin-bottom: 20px;
+}
+
+dt, dd {
+  display: block;
+  font-size: 1rem;
+}
+
+dt {
+  margin-bottom: 5px;
+  padding-right: 10px;
+}
+
+dd {
+  width: 100%;
+}
+
+ul {
+  padding-top: 10px;
+}
+
+li + li {
+  margin-top: 3px;
+}
+
+.partial {
+  display: inline-block;
+}
+
+.left {
+  padding-right: 5px;
+}
+
+.right {
+  padding-left: 5px;
+}
+
+.name {
+  width: 50%;
+}
+
+.city {
+  width: 50%;
+}
+
+.state {
+  width: 15%;
+}
+
+.zipcode {
+  width: 35%;
+}
+
+/* Labels */
+
+dt label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+label .required {
+  color: red;
+}
+
+/* User input elements */
+
+[type="text"], [type="email"], select, textarea {
+  border: 1px solid #cecece;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  height: 1.75rem;
+  padding: 3px 5px;
+  width: 100%;
+}
+
+[type="radio"], [type="checkbox"] {
+  margin-left: 0;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+textarea {
+  height: auto;
+  resize: vertical;
+}
+
+/* Buttons */
+
+[type="submit"], [type="reset"] {
+  font-weight: bold;
+  height: 2rem;
+  margin-right: 5px;
+  width: 4rem;
+}
+
+[type="submit"] {
+  background-color: green;
+  border: 2px solid green;
+  color: white;
+}
+
+[type="reset"] {
+  background-color: #b22222;
+  border: 2px solid #b22222;
+  color: white;
+}
+
+fieldset:last-of-type {
+  margin: 0 auto;
+  width: 9rem;
+}

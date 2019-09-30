@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Containing Floats</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="">
+
+    <style type="text/css">
+      body, section, article, aside {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #cecece;
+      }
+
+      section {
+        background-color: powderblue;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section::after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+
+      article, aside, footer {
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      article {
+        background-color: moccasin;
+        width: 70%;
+        float: left;
+      }
+
+      aside {
+        background-color: lightgreen;
+        overflow: hidden;
+      }
+
+      footer {
+        background-color: #ebecff;
+        clear: both;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <article>
+        <p>Integer dolor urna, faucibus nec scelerisque ut, suscipit ut est. Suspendisse vel hendrerit neque, nec vestibulum nibh. Vivamus imperdiet interdum semper. Nam ornare, nunc at interdum iaculis, lacus enim tempus nisi, ut pulvinar augue ipsum mollis odio. Ut dolor libero, consectetur et ligula ut, sollicitudin varius tortor. Praesent et mollis lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <p>Fusce mollis arcu dui, eu imperdiet arcu mattis sed. Duis id dui vel odio venenatis vulputate nec at lectus. Quisque laoreet felis a libero consectetur dapibus. Etiam euismod blandit dolor, ut placerat lorem aliquet ut. Maecenas pretium eros arcu, at ultricies erat fermentum sed. Sed dignissim imperdiet ornare. Proin at pulvinar nisi, sit amet dapibus est. Curabitur vitae ante tincidunt, vehicula nisl et, pretium metus. Sed vel turpis sit amet dolor egestas bibendum. Pellentesque hendrerit sapien id lectus auctor iaculis.</p>
+
+        <p>Suspendisse ut sem sit amet libero imperdiet fringilla ut et massa. Fusce fringilla purus a felis dapibus eleifend. Quisque congue commodo leo, eu elementum tellus eleifend at. Mauris vel neque condimentum, placerat leo id, dignissim libero. Nulla id erat in metus cursus eleifend at non nisi. Sed eget mi a dui euismod rhoncus. Vivamus non cursus mauris.</p>
+
+        <p>Etiam laoreet elit leo, quis fermentum turpis egestas et. Aenean bibendum elit aliquam lobortis ullamcorper. Aliquam non ipsum at justo fermentum laoreet eu quis augue. Curabitur pretium, sem vel bibendum ultricies, diam sem sodales tellus, vitae bibendum massa augue non enim. Etiam ornare sit amet ante et consectetur. Nullam nec placerat mi. Aenean dapibus bibendum semper. Morbi a tempus diam, sit amet aliquet ante. Phasellus bibendum quam id nibh mattis, ac iaculis urna rutrum. Nullam ut sagittis orci, at aliquet erat. Phasellus in ultrices mauris. Nullam elit dolor, mattis in posuere non, convallis quis felis.</p>
+      </article>
+
+      <aside>
+        <p>Nulla vestibulum quis odio sit amet scelerisque. Praesent in purus sed ex ullamcorper molestie ut sit amet dui. Integer eleifend pretium augue. Aliquam mollis malesuada eleifend. Phasellus convallis convallis efficitur. Ut vitae purus at risus venenatis blandit. Praesent a accumsan ante.</p>
+
+        <p>Proin volutpat metus id libero ultricies auctor. Donec pulvinar magna vel elit varius, Maecenas consectetur massa nec arcu aliquet sollicitudin. Proin ultrices ullamcorper pharetra. Duis enim urna, cursus et eleifend at, aliquam id nulla. Vestibulum rhoncus tortor nec sem egestas tincidunt.</p>
+      </aside>
+
+      <footer>
+        <p>Nulla vestibulum quis odio sit amet scelerisque. Praesent in purus sed ex ullamcorper molestie ut sit amet dui. Integer eleifend pretium augue. Aliquam mollis malesuada eleifend. Phasellus convallis convallis efficitur. Ut vitae purus at risus venenatis blandit. Praesent a accumsan ante.</p>
+      </footer>
+    </section>
+  </body>
+
+</html>

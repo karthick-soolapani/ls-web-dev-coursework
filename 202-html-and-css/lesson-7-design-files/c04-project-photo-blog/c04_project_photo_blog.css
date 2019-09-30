@@ -1,0 +1,107 @@
+@import url("css_reset.css");
+
+/* Box sizing reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Overall */
+
+body {
+  background: linear-gradient(#d1dbbd, #fcfff5);
+  background-repeat: no-repeat;
+  color: #3e606f;
+  font: normal 1.125rem "Roboto Condensed", sans-serif;
+}
+
+/* Header Section */
+
+header {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
+  width: 960px;
+}
+
+h1 {
+  background-image: url("logo.png");
+  background-repeat: no-repeat;
+  color: #193441;
+  font-size: 2.25rem;
+  padding: 45px 0 35px 110px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+nav a {
+  background-color: #fcfff5;
+  border-radius: 10px 10px 0 0;
+  color: #91aa9d;
+  height: 45px;
+  line-height: 45px;
+  text-decoration: none;
+  padding: 0 40px;
+  margin-left: 5px;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #91aa9d;
+  color: #fcfff5;
+}
+
+/* Main Section */
+
+main {
+  background-color: #fff;
+  box-shadow: 0 5px 5px #b5b5b5;
+  margin: 0 auto;
+  padding: 30px 30px 50px;
+  width: 960px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 35px 0 25px;
+}
+
+p {
+  line-height: 1.25;
+  margin-bottom: 30px;
+}
+
+figure {
+  float: right;
+  padding-left: 40px;
+}
+
+img {
+  display: block;
+}
+
+main::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* Footer Section */
+
+footer {
+  color: #3e606f;
+  font-size: 0.875rem;
+  margin: 15px auto;
+  width: 960px;
+}

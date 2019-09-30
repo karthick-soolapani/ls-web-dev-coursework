@@ -1,0 +1,140 @@
+/* Box Sizing Reset  */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Document Properties  */
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 32px;
+}
+
+article {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  width: 680px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  font-weight: lighter;
+}
+
+header {
+  border-bottom: 30px solid black;
+  padding-bottom: 5px;
+}
+
+h1 {
+  font-family: 'Libre Franklin', 'Franklin Gothic Heavy', Helvetica, Arial, sans-serif;
+  font-size: 2.7rem;
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+sup {
+  vertical-align: 3px;
+}
+
+em {
+  font-style: italic;
+}
+
+/* All Tables */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border-bottom: 1px solid gray;
+  padding: 5px 0;
+  text-align: left;
+}
+
+th {
+  font-family: 'Libre Franklin', 'Franklin Gothic Heavy', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+dt, dd {
+  display: inline-block;
+}
+
+td:first-of-type dt {
+  font-family: 'Libre Franklin', 'Franklin Gothic Heavy', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+td.indent {
+  border-bottom: none;
+  width: 1rem;
+}
+
+/* First Table */
+
+table:first-of-type {
+  border-bottom: 15px solid black;
+  margin-top: 5px;
+}
+
+table:first-of-type td:last-of-type {
+  text-align: right;
+}
+
+/* Second Table */
+
+table:nth-of-type(2) th,
+table:nth-of-type(2) td:last-of-type {
+  text-align: right;
+}
+
+table:nth-of-type(2) tbody:first-of-type {
+  border-bottom: 30px solid black;
+}
+
+table:nth-of-type(2) tbody:first-of-type td:last-of-type {
+  font-family: 'Libre Franklin', 'Franklin Gothic Heavy', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+table:nth-of-type(2) tfoot td:last-of-type {
+  border: none;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  padding: 0.25rem;
+  padding-left: 0.7rem;
+  text-align: left;
+  text-indent: -0.45rem;
+}
+
+/* Third Table */
+
+table:last-of-type th,
+table:last-of-type td {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  text-align: left;
+  line-height: 0.8;
+}
+
+table:last-of-type td {
+  border: none;
+}
+
+table:last-of-type td.indent {
+  text-indent: 1rem;
+  width: auto;
+}
+
+table:last-of-type tr:first-of-type td {
+  padding-top: 10px;
+}
